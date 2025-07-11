@@ -1,0 +1,98 @@
+[
+  {
+    "from_table": "GFOLYNSD_STANDARDIZATION.OM_TRADE_FACT_ALL",
+    "to_table": "gfolynref_standardization.OM_PRODUCT_DIM",
+    "from_column": "product_sk",
+    "to_column": "product_sk",
+    "relationship_type": "ERD_DEFINED_GEMINI",
+    "confidence": 1.0
+  },
+  {
+    "from_table": "GFOLYNSD_STANDARDIZATION.OM_TRADE_FACT_ALL",
+    "to_table": "gfolynref_standardization.OM_PARTY_DIM",
+    "from_column": "counter_party_sk",
+    "to_column": "party_sk",
+    "relationship_type": "ERD_DEFINED_GEMINI",
+    "confidence": 1.0
+  },
+  {
+    "from_table": "GFOLYNSD_STANDARDIZATION.OM_TRADE_FACT_ALL",
+    "to_table": "gfolynref_standardization.OM_ACCOUNT_DIM",
+    "from_column": "firm_account_sk",
+    "to_column": "account_sk",
+    "relationship_type": "ERD_DEFINED_GEMINI",
+    "confidence": 1.0
+  },
+  {
+    "from_table": "GFOLYNSD_STANDARDIZATION.OM_TRADE_FACT_ALL",
+    "to_table": "gfolynref_standardization.OM_COUNTRY_DIM",
+    "from_column": "country_sk",
+    "to_column": "country_sk",
+    "relationship_type": "ERD_DEFINED_GEMINI",
+    "confidence": 1.0
+  },
+  {
+    "from_table": "GFOLYNSD_STANDARDIZATION.OM_TRADE_FACT_ALL",
+    "to_table": "gfolynref_standardization.OM_CURRENCY_DIM",
+    "from_column": "currency_sk",
+    "to_column": "currency_sk",
+    "relationship_type": "ERD_DEFINED_GEMINI",
+    "confidence": 1.0
+  },
+  {
+    "from_table": "GFOLYNSD_STANDARDIZATION.OM_TRADE_FACT_ALL",
+    "to_table": "gfolynref_standardization.OM_MANAGED_SEGMENT_DIM",
+    "from_column": "managed_segment_sk",
+    "to_column": "managed_segment_sk",
+    "relationship_type": "ERD_DEFINED_GEMINI",
+    "confidence": 1.0
+  },
+  {
+    "from_table": "GFOLYNSD_STANDARDIZATION.OM_TRADE_FACT_ALL",
+    "to_table": "gfolynref_standardization.OM_PRODUCT_DIM",
+    "from_column": "underlying_product_sk",
+    "to_column": "product_sk",
+    "relationship_type": "ERD_DEFINED_GEMINI",
+    "confidence": 1.0
+  },
+  {
+    "from_table": "GFOLYNSD_STANDARDIZATION.OM_TRADE_FACT_ALL",
+    "to_table": "gfolynref_standardization.OM_EXCHANGE_DIM",
+    "from_column": "exchange_sk",
+    "to_column": "exchange_sk",
+    "relationship_type": "ERD_DEFINED_GEMINI",
+    "confidence": 1.0
+  },
+  {
+    "from_table": "GFOLYNSD_STANDARDIZATION.OM_TRADE_FACT_ALL",
+    "to_table": "gfolynref_standardization.OM_PARTY_DIM",
+    "from_column": "sales_trader_sk",
+    "to_column": "party_sk",
+    "relationship_type": "ERD_DEFINED_GEMINI",
+    "confidence": 1.0
+  },
+  {
+    "from_table": "GFOLYNSD_STANDARDIZATION.OM_TRADE_FACT_ALL",
+    "to_table": "gfolynref_standardization.OM_PARTY_DIM",
+    "from_column": "executing_trader_sk",
+    "to_column": "party_sk",
+    "relationship_type": "ERD_DEFINED_GEMINI",
+    "confidence": 1.0
+  },
+  {
+    "from_table": "GFOLYNSD_STANDARDIZATION.OM_TRADE_FACT_ALL",
+    "to_table": "gfolynref_standardization.OM_SUNDRY_DIM",
+    "from_column": "trade_event_type_sk",
+    "to_column": "sundry_sk",
+    "relationship_type": "ERD_DEFINED_GEMINI",
+    "confidence": 1.0
+  },
+  {
+    "from_table": "GFOLYNSD_STANDARDIZATION.OM_TRADE_FACT_ALL",
+    "to_table": "gfolynref_standardization.OM_SOURCE_SYSTEM_DIM",
+    "from_column": "source_system_sk",
+    "to_column": "source_system_sk",
+    "relationship_type": "ERD_DEFINED_GEMINI",
+    "confidence": 1.0
+  }
+]
