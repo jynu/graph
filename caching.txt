@@ -1,0 +1,13 @@
+For Solution 1 (Job Cacher Plugin - Recommended):
+
+Install the Job Cacher Plugin:
+
+Go to Jenkins → Manage Jenkins → Plugins
+Search for "Job Cacher" and install it
+
+
+Create pip cache directory on Jenkins agents:
+bashsudo mkdir -p /var/lib/jenkins/pip-cache
+sudo chown jenkins:jenkins /var/lib/jenkins/pip-cache
+
+Update your Jenkinsfile with the provided caching configuration
