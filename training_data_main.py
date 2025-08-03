@@ -1,4 +1,4 @@
-# training_data_main.py - Complete main file with all components
+# Complete main file with all components
 import io
 import os
 import sys
@@ -14,7 +14,10 @@ from enum import Enum
 
 # Import the frequent column function
 from getFrequentColumn import getFrequentColumn
+from query_log_analyzer import QueryLogAnalyzer
 
+JAVA_PATH = "C:/work/training_data/jdk-17.0.7/jdk-17.0.7/bin/java.exe"
+JAR_PATH = "C:/work/training_data/mktdata-report-hvapi-commandline-client-1.0.30.jar"
 # =============================================================================
 # CONFIGURATION CLASSES AND MANAGER
 # =============================================================================
@@ -63,14 +66,27 @@ class ConfigManager:
         """Get database configuration"""
         config_data = self.get_section_config(section)
         
+        # ADD VALIDATION LOGGING:
+        if 'USERID' not in config_data:
+            print(f"WARNING: USERID not found in section [{section}]")
+        if 'PASSWORD' not in config_data:
+            print(f"WARNING: PASSWORD not found in section [{section}]")
+        
         # Handle Windows authentication differently
         if os.name == 'nt':  # Windows
             user_id = config_data.get('USERID', '')
             password = config_data.get('PASSWORD', '')
         else:
-            # For Linux, use environment variables
             user_id = os.environ.get('USER_FOR_TRAINING', '')
             password = self._decrypt_password()
+        
+        # ADD CREDENTIAL VALIDATION:
+        if not user_id:
+            print(f"ERROR: No user ID configured for section [{section}]")
+        if not password:
+            print(f"ERROR: No password configured for section [{section}]")
+        
+        print(f"Database config - User: {user_id}, Password: {'*' * len(password) if password else 'NOT SET'}")
         
         return DatabaseConfig(
             host=self._get_host_from_config(config_data),
@@ -102,14 +118,14 @@ class ConfigManager:
     def _get_jdk_path(self) -> str:
         """Get JDK path based on OS"""
         if os.name == 'nt':  # Windows
-            return r"C:/Users/AK06306/AppData/Local/CitiSoftware/CTC2174129_JDK_17.0_15W64/bin/java.exe"
+            return JAVA_PATH
         else:  # Linux
             return "/opt/jdk/17.0_9l64/bin/java"
     
     def _get_jar_path(self) -> str:
         """Get JAR path based on OS"""
         if os.name == 'nt':  # Windows
-            return r"C:/Users/AK06306/Downloads/mktdata-report-hvapi-commandline-client-1.0.30-20250519.150013-4.jar"
+            return JAR_PATH
         else:  # Linux
             return "/home/bj33244/mktdata-report-hvapi-commandline-client-1.0.27-SNAPSHOT.jar"
     
@@ -154,20 +170,60 @@ class DatabaseClient:
                 self.db_config.host,
                 f"--query={query}",
                 f"--user={self.db_config.user_id}",
-                f"--pass={self.db_config.password}",
+                f"--pass={self.db_config.password}",  # Consider masking this in logs
                 f"--env={self.db_config.environment}",
                 f"--format={format_type}",
                 f"--destination={output_file}"
             ]
             
+            # ADD THESE LOGGING LINES:
             self.logger.info(f"Executing query: {query}")
-            result = subprocess.run(command, capture_output=True, text=True, timeout=300)
+            self.logger.info(f"Database host: {self.db_config.host}")
+            self.logger.info(f"Database user: {self.db_config.user_id}")
+            self.logger.info(f"Java path: {self.system_config.jdk_path}")
+            self.logger.info(f"JAR path: {self.system_config.jar_path}")
+            self.logger.info(f"Output file: {output_file}")
             
-            if result.returncode != 0:
-                self.logger.error(f"Query execution failed: {result.stderr}")
+            # Check if Java and JAR files exist
+            if not os.path.exists(self.system_config.jdk_path):
+                self.logger.error(f"Java executable not found: {self.system_config.jdk_path}")
                 return False
             
-            return os.path.exists(output_file)
+            if not os.path.exists(self.system_config.jar_path):
+                self.logger.error(f"JAR file not found: {self.system_config.jar_path}")
+                return False
+            
+            print(f"DEBUG: Full command: {' '.join(command)}")
+            print(f"DEBUG: Working directory: {os.getcwd()}")
+            print(f"DEBUG: Java version check...")
+            java_version_result = subprocess.run([self.system_config.jdk_path, "-version"], 
+                                               capture_output=True, text=True)
+            print(f"DEBUG: Java check result: {java_version_result.stderr}")
+            
+            result = subprocess.run(command, capture_output=True, text=True, timeout=300)
+            
+            # ADD DETAILED ERROR LOGGING:
+            self.logger.info(f"Command return code: {result.returncode}")
+            if result.stdout:
+                self.logger.info(f"Command stdout: {result.stdout}")
+            if result.stderr:
+                self.logger.error(f"Command stderr: {result.stderr}")
+            
+            if result.returncode != 0:
+                self.logger.error(f"Query execution failed with code {result.returncode}")
+                self.logger.error(f"Error output: {result.stderr}")
+                return False
+            
+            # Check if output file was created
+            if not os.path.exists(output_file):
+                self.logger.error(f"Output file was not created: {output_file}")
+                return False
+            
+            # Check if output file has content
+            file_size = os.path.getsize(output_file)
+            self.logger.info(f"Output file size: {file_size} bytes")
+            
+            return True
             
         except subprocess.TimeoutExpired:
             self.logger.error(f"Query execution timed out: {query}")
@@ -207,6 +263,34 @@ class DatabaseClient:
         
         return schema_dict
     
+    def test_connection(self) -> bool:
+        """Test database connection with a simple query"""
+        try:
+            # Create a temporary output file
+            import tempfile
+            with tempfile.NamedTemporaryFile(mode='w', suffix='.test', delete=False) as temp_file:
+                temp_output = temp_file.name
+            
+            # Try a simple query
+            test_query = "SELECT 1 as test_connection"
+            
+            self.logger.info("Testing database connection...")
+            success = self.execute_query(test_query, temp_output, "TXT")
+            
+            if success and os.path.exists(temp_output):
+                with open(temp_output, 'r') as f:
+                    content = f.read()
+                    self.logger.info(f"Connection test result: {content}")
+                os.unlink(temp_output)
+                return True
+            else:
+                self.logger.error("Connection test failed")
+                return False
+                
+        except Exception as e:
+            self.logger.error(f"Connection test error: {e}")
+            return False
+    
     def _map_column_type(self, column_type: str) -> str:
         """Map database column types to simplified types"""
         column_type_lower = column_type.lower()
@@ -241,6 +325,9 @@ class MetadataManager:
     
     def load_table_metadata(self, table_name: str) -> bool:
         """Load metadata for a specific table"""
+        # ADD TABLE EXISTENCE CHECK:
+        self.logger.info(f"Checking if table exists: {table_name}")
+        
         table_dir = os.path.join(
             self.system_config.base_directory, 
             self.system_config.date_type, 
@@ -250,11 +337,18 @@ class MetadataManager:
         os.makedirs(table_dir, exist_ok=True)
         
         schema_file = os.path.join(table_dir, f"{table_name}.schema")
+        
+        # ADD FILE PATH LOGGING:
+        self.logger.info(f"Schema file path: {schema_file}")
+        
         schema = self.db_client.get_table_schema(table_name, schema_file)
         
         if schema:
             self.table_schemas[table_name] = schema
-            self.logger.info(f"Loaded metadata for table: {table_name}")
+            self.logger.info(f"Loaded metadata for table: {table_name} ({len(schema)} columns)")
+            # ADD COLUMN DETAILS:
+            for col_name, col_info in schema.items():
+                self.logger.debug(f"  Column: {col_name} -> {col_info}")
             return True
         
         self.logger.error(f"Failed to load metadata for table: {table_name}")
@@ -660,6 +754,85 @@ class TrainingDataProcessor:
                 logging.StreamHandler(sys.stdout)
             ]
         )
+        # Set debug level for query log analyzer
+        logging.getLogger('query_log_analyzer').setLevel(logging.DEBUG)
+    
+    def _should_analyze_query_logs(self, config_data: dict) -> bool:
+        """Check if query log analysis should be performed"""
+        return config_data.get('ENABLE_LOG_ANALYSIS', 'false').lower() == 'true'
+
+    def _analyze_and_update_frequent_columns(self, tables_list: List[str], config_data: dict):
+        """Analyze query logs and update frequent columns"""
+        
+        self.logger.info("Initializing query log analyzer...")
+        query_analyzer = QueryLogAnalyzer(self.db_client)
+        
+        months_back = int(config_data.get('LOG_ANALYSIS_MONTHS', '6'))
+        min_usage = int(config_data.get('LOG_ANALYSIS_MIN_USAGE', '5'))
+        
+        for table_name in tables_list:
+            columns_key = f"{table_name}_Columns"
+            
+            # Only analyze if columns are set to [generated] or [logs]
+            columns_value = config_data.get(columns_key, "")
+            
+            if columns_value in ['[generated]', '[logs]']:
+                try:
+                    self.logger.info(f"Analyzing query logs for table: {table_name}")
+                    
+                    # Analyze query logs
+                    usage_data = query_analyzer.analyze_table_usage(table_name, months_back=months_back)
+                    
+                    if usage_data['total_queries'] > 0:
+                        # Get top columns that meet minimum usage threshold
+                        top_columns = [
+                            col for col, count in usage_data['top_columns'] 
+                            if count >= min_usage
+                        ]
+                        
+                        if top_columns:
+                            # Update config with frequent columns from logs
+                            config_data[columns_key] = ",".join(top_columns[:20])  # Top 20 columns
+                            config_data[f"{table_name}_LogAnalysis_Date"] = datetime.now().strftime("%Y%m%d")
+                            config_data[f"{table_name}_QueryCount"] = str(usage_data['total_queries'])
+                            config_data[f"{table_name}_UniqueColumns"] = str(len(usage_data['column_usage_frequency']))
+                            
+                            self.logger.info(f"Updated {table_name} with {len(top_columns)} frequent columns from {usage_data['total_queries']} queries")
+                            
+                            # Log top 5 columns for verification
+                            top_5 = usage_data['top_columns'][:5]
+                            self.logger.info(f"Top 5 columns for {table_name}: {top_5}")
+                            
+                        else:
+                            self.logger.warning(f"No columns met minimum usage threshold ({min_usage}) for {table_name}")
+                            self._fallback_to_heuristic_analysis(table_name, config_data, columns_key)
+                    else:
+                        self.logger.warning(f"No query logs found for {table_name}, falling back to heuristic analysis")
+                        self._fallback_to_heuristic_analysis(table_name, config_data, columns_key)
+                        
+                except Exception as e:
+                    self.logger.error(f"Failed to analyze logs for {table_name}: {e}")
+                    self._fallback_to_heuristic_analysis(table_name, config_data, columns_key)
+
+    def _fallback_to_heuristic_analysis(self, table_name: str, config_data: dict, columns_key: str):
+        """Fallback to existing getFrequentColumn method"""
+        try:
+            self.logger.info(f"Using heuristic analysis for {table_name}")
+            frequent_column_names = getFrequentColumn(
+                table_name, 
+                self.db_config.host, 
+                self.db_config.user_id, 
+                self.db_config.password
+            )
+            config_data[columns_key] = ",".join(frequent_column_names)
+            config_data[f"{table_name}_AnalysisMethod"] = "heuristic"
+            self.logger.info(f"Fallback: Updated {table_name} with {len(frequent_column_names)} columns using heuristic method")
+            
+        except Exception as e:
+            self.logger.error(f"Heuristic analysis also failed for {table_name}: {e}")
+            # Use default columns as last resort
+            config_data[columns_key] = "id,name,type,status,date,amount"
+            config_data[f"{table_name}_AnalysisMethod"] = "default"
     
     def process(self, section: str = "transcation") -> bool:
         """Main processing workflow"""
@@ -669,6 +842,15 @@ class TrainingDataProcessor:
             # Get configuration data
             config_data = self.config_manager.get_section_config(section)
             tables_list = self.config_manager.get_tables_list(section)
+            
+            # ADD CONNECTION TEST HERE:
+            self.logger.info("Testing database connection...")
+            if hasattr(self.db_client, 'test_connection'):
+                if not self.db_client.test_connection():
+                    self.logger.error("Database connection test failed. Check credentials and network connectivity.")
+                    return False
+                else:
+                    self.logger.info("Database connection test successful!")
             
             # Initialize master dictionary
             master_dict = {
@@ -693,6 +875,11 @@ class TrainingDataProcessor:
             self.logger.info("Setting processing day ranges...")
             for table_name in tables_list:
                 config_data[f"{table_name}_NoOfDays"] = 90  # Default to 90 days
+                
+            # NEW STEP 2.5: Analyze query logs for frequent columns
+            if self._should_analyze_query_logs(config_data):
+                self.logger.info("Analyzing query logs for frequent columns...")
+                self._analyze_and_update_frequent_columns(tables_list, config_data)
             
             # Step 3: Process columns and get statistics
             self.logger.info("Processing column statistics...")
@@ -774,8 +961,7 @@ def main():
     """Main entry point"""
     # Configuration files (adjust paths as needed)
     config_files = [
-        r"C:/Users/AK06306/Downloads/rsocket_workspace/olympus-dc-server/data_preprocessing/Tables_Selection_Middleoffice.conf",
-        r"C:/Users/AK06306/Downloads/rsocket_workspace/olympus-dc-server/data_preprocessing/Tables_Selection.conf"
+        r"./Tables_Selection_Middleoffice.conf"
     ]
     
     try:

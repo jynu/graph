@@ -1,0 +1,25 @@
+[transcation]
+TABLES = GFOLYNSD_STANDARDIZATION.OM_TRADE_FACT_ALL
+BASEDIRECTORY = ./sample_output
+OUTPUT_DIRECTORY = ./sample_output
+START_DATE = 20250101
+USERID = your_username
+PASSWORD = your_password
+
+# NEW: Enable query log analysis
+ENABLE_LOG_ANALYSIS = true
+LOG_ANALYSIS_MONTHS = 6
+LOG_ANALYSIS_MIN_USAGE = 5
+
+# Column configuration options:
+# - Explicit list: col1,col2,col3
+# - [generated] - use heuristic analysis (existing method)
+# - [logs] - use query log analysis (new method)
+GFOLYNSD_STANDARDIZATION.OM_TRADE_FACT_ALL_Columns = [logs]
+GFOLYNSD_STANDARDIZATION.OM_TRADE_FACT_ALL_WhereCol_daycriteria = trade_date
+GFOLYNSD_STANDARDIZATION.OM_TRADE_FACT_ALL_NoOfDays = 90
+
+# These will be auto-populated by the log analysis:
+# GFOLYNSD_STANDARDIZATION.OM_TRADE_FACT_ALL_LogAnalysis_Date = 20250131
+# GFOLYNSD_STANDARDIZATION.OM_TRADE_FACT_ALL_QueryCount = 1523
+# GFOLYNSD_STANDARDIZATION.OM_TRADE_FACT_ALL_UniqueColumns = 45
