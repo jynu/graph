@@ -1,0 +1,3639 @@
+{
+  "basic_stats": {
+    "total_databases": 80,
+    "train_databases": 69,
+    "dev_databases": 11,
+    "total_tables": 597,
+    "total_columns": 4337,
+    "domains": [
+      "soccer_2016",
+      "formula_1",
+      "university",
+      "works_cycles",
+      "citeseer",
+      "car_retails",
+      "retails",
+      "craftbeer",
+      "codebase_community",
+      "video_games",
+      "book_publishing_company",
+      "regional_sales",
+      "simpson_episodes",
+      "mental_health_survey",
+      "professional_basketball",
+      "human_resources",
+      "cs_semester",
+      "legislator",
+      "shooting",
+      "image_and_language",
+      "sales",
+      "food_inspection",
+      "california_schools",
+      "sales_in_weather",
+      "address",
+      "movielens",
+      "shakespeare",
+      "social_media",
+      "software_company",
+      "app_store",
+      "retail_world",
+      "music_tracker",
+      "music_platform_2",
+      "talkingdata",
+      "computer_student",
+      "financial",
+      "genes",
+      "beer_factory",
+      "public_review_platform",
+      "thrombosis_prediction",
+      "movie",
+      "debit_card_specializing",
+      "chicago_crime",
+      "shipping",
+      "menu",
+      "toxicology",
+      "cars",
+      "ice_hockey_draft",
+      "olympics",
+      "bike_share_1",
+      "language_corpus",
+      "card_games",
+      "airline",
+      "restaurant",
+      "authors",
+      "law_episode",
+      "synthea",
+      "trains",
+      "hockey",
+      "disney",
+      "superstore",
+      "superhero",
+      "european_football_1",
+      "movie_platform",
+      "student_loan",
+      "college_completion",
+      "food_inspection_2",
+      "retail_complains",
+      "world_development_indicators",
+      "movies_4",
+      "cookbook",
+      "mondial_geo",
+      "books",
+      "donor",
+      "movie_3",
+      "student_club",
+      "world",
+      "european_football_2",
+      "codebase_comments",
+      "coinmarketcap"
+    ],
+    "avg_tables_per_db": 7.4625,
+    "median_tables_per_db": 5.0,
+    "max_tables_per_db": 65,
+    "min_tables_per_db": 2,
+    "avg_columns_per_db": 54.2125,
+    "median_columns_per_db": 38.5,
+    "max_columns_per_db": 455,
+    "min_columns_per_db": 6,
+    "avg_foreign_keys_per_db": 6.575,
+    "total_foreign_keys": 526,
+    "avg_primary_keys_per_db": 6.7125,
+    "total_primary_keys": 537
+  },
+  "column_types": {
+    "distribution": {
+      "text": 2096,
+      "date": 88,
+      "integer": 1633,
+      "real": 377,
+      "datetime": 137,
+      "blob": 6
+    },
+    "by_database": {
+      "european_football_1": {
+        "text": 7,
+        "date": 1,
+        "integer": 3
+      },
+      "sales_in_weather": {
+        "date": 2,
+        "integer": 15,
+        "text": 3,
+        "real": 6
+      },
+      "craftbeer": {
+        "integer": 3,
+        "text": 5,
+        "real": 3
+      },
+      "soccer_2016": {
+        "integer": 69,
+        "text": 14,
+        "date": 2
+      },
+      "restaurant": {
+        "text": 8,
+        "integer": 3,
+        "real": 1
+      },
+      "movie": {
+        "integer": 10,
+        "text": 15,
+        "date": 1,
+        "real": 1
+      },
+      "olympics": {
+        "integer": 22,
+        "text": 10
+      },
+      "language_corpus": {
+        "integer": 20,
+        "text": 4
+      },
+      "app_store": {
+        "text": 13,
+        "real": 1,
+        "integer": 1
+      },
+      "sales": {
+        "integer": 8,
+        "text": 7,
+        "real": 1
+      },
+      "video_games": {
+        "integer": 15,
+        "text": 5,
+        "real": 1
+      },
+      "image_and_language": {
+        "integer": 17,
+        "text": 3
+      },
+      "software_company": {
+        "integer": 9,
+        "real": 21,
+        "datetime": 3,
+        "text": 5
+      },
+      "authors": {
+        "integer": 9,
+        "text": 12
+      },
+      "movies_4": {
+        "integer": 32,
+        "text": 18,
+        "real": 2,
+        "date": 1
+      },
+      "social_media": {
+        "integer": 8,
+        "text": 12,
+        "real": 1
+      },
+      "human_resources": {
+        "integer": 5,
+        "text": 15
+      },
+      "regional_sales": {
+        "integer": 15,
+        "text": 23,
+        "real": 3
+      },
+      "computer_student": {
+        "integer": 8,
+        "text": 4
+      },
+      "works_cycles": {
+        "text": 135,
+        "datetime": 95,
+        "integer": 166,
+        "date": 8,
+        "blob": 3,
+        "real": 48
+      },
+      "food_inspection_2": {
+        "integer": 17,
+        "text": 20,
+        "real": 2,
+        "date": 1
+      },
+      "citeseer": {
+        "text": 6
+      },
+      "bike_share_1": {
+        "integer": 28,
+        "text": 13,
+        "real": 5
+      },
+      "law_episode": {
+        "text": 28,
+        "integer": 8,
+        "date": 2,
+        "real": 3
+      },
+      "cs_semester": {
+        "integer": 14,
+        "text": 13,
+        "real": 1
+      },
+      "legislator": {
+        "text": 87,
+        "date": 1,
+        "real": 15,
+        "integer": 4
+      },
+      "world": {
+        "integer": 5,
+        "text": 14,
+        "real": 5
+      },
+      "cookbook": {
+        "integer": 10,
+        "text": 12,
+        "real": 17
+      },
+      "university": {
+        "integer": 15,
+        "text": 4,
+        "real": 1
+      },
+      "books": {
+        "integer": 29,
+        "text": 16,
+        "date": 1,
+        "real": 2,
+        "datetime": 2
+      },
+      "shipping": {
+        "integer": 13,
+        "text": 16,
+        "real": 3
+      },
+      "food_inspection": {
+        "integer": 6,
+        "text": 14,
+        "real": 2,
+        "date": 3
+      },
+      "movie_platform": {
+        "integer": 27,
+        "text": 28
+      },
+      "shakespeare": {
+        "integer": 11,
+        "text": 8
+      },
+      "book_publishing_company": {
+        "text": 42,
+        "integer": 15,
+        "datetime": 3,
+        "blob": 1,
+        "real": 3
+      },
+      "car_retails": {
+        "text": 38,
+        "integer": 11,
+        "real": 5,
+        "date": 4,
+        "blob": 1
+      },
+      "mental_health_survey": {
+        "text": 3,
+        "integer": 5
+      },
+      "hockey": {
+        "text": 197,
+        "integer": 103
+      },
+      "music_platform_2": {
+        "text": 12,
+        "integer": 4
+      },
+      "address": {
+        "integer": 46,
+        "text": 26,
+        "real": 9
+      },
+      "menu": {
+        "integer": 16,
+        "text": 21,
+        "real": 7,
+        "date": 1
+      },
+      "professional_basketball": {
+        "text": 62,
+        "integer": 92,
+        "real": 1,
+        "date": 2
+      },
+      "cars": {
+        "integer": 10,
+        "text": 2,
+        "real": 4
+      },
+      "synthea": {
+        "text": 55,
+        "integer": 13,
+        "real": 4,
+        "date": 13
+      },
+      "genes": {
+        "text": 13,
+        "integer": 1,
+        "real": 1
+      },
+      "retails": {
+        "integer": 20,
+        "text": 29,
+        "real": 8,
+        "date": 4
+      },
+      "talkingdata": {
+        "integer": 23,
+        "datetime": 2,
+        "real": 16,
+        "text": 7
+      },
+      "beer_factory": {
+        "integer": 18,
+        "text": 34,
+        "date": 4,
+        "real": 5
+      },
+      "chicago_crime": {
+        "integer": 12,
+        "text": 40
+      },
+      "mondial_geo": {
+        "text": 95,
+        "real": 39,
+        "integer": 3,
+        "date": 2
+      },
+      "student_loan": {
+        "text": 13,
+        "integer": 2
+      },
+      "codebase_comments": {
+        "integer": 14,
+        "text": 11
+      },
+      "retail_world": {
+        "integer": 16,
+        "text": 23,
+        "date": 1,
+        "real": 1,
+        "datetime": 1
+      },
+      "music_tracker": {
+        "text": 4,
+        "integer": 6
+      },
+      "disney": {
+        "text": 17,
+        "integer": 3,
+        "real": 3
+      },
+      "college_completion": {
+        "integer": 26,
+        "text": 64,
+        "real": 12
+      },
+      "ice_hockey_draft": {
+        "integer": 23,
+        "text": 13,
+        "date": 1
+      },
+      "world_development_indicators": {
+        "text": 59,
+        "integer": 8
+      },
+      "airline": {
+        "integer": 24,
+        "text": 8
+      },
+      "retail_complains": {
+        "text": 44,
+        "date": 3,
+        "integer": 11
+      },
+      "trains": {
+        "integer": 6,
+        "text": 6
+      },
+      "public_review_platform": {
+        "integer": 27,
+        "text": 47,
+        "real": 1
+      },
+      "donor": {
+        "text": 56,
+        "real": 9,
+        "integer": 4,
+        "date": 1,
+        "datetime": 1
+      },
+      "coinmarketcap": {
+        "integer": 5,
+        "text": 15,
+        "date": 1,
+        "real": 13
+      },
+      "simpson_episodes": {
+        "text": 30,
+        "integer": 9,
+        "real": 3
+      },
+      "movie_3": {
+        "integer": 40,
+        "text": 26,
+        "datetime": 19,
+        "real": 3,
+        "blob": 1
+      },
+      "shooting": {
+        "text": 18,
+        "date": 1,
+        "integer": 1
+      },
+      "superstore": {
+        "text": 32,
+        "integer": 9,
+        "date": 8,
+        "real": 12
+      },
+      "movielens": {
+        "integer": 16,
+        "text": 8
+      },
+      "debit_card_specializing": {
+        "integer": 11,
+        "text": 7,
+        "date": 1,
+        "real": 2
+      },
+      "financial": {
+        "integer": 28,
+        "text": 17,
+        "date": 5,
+        "real": 5
+      },
+      "formula_1": {
+        "integer": 53,
+        "text": 33,
+        "real": 6,
+        "date": 2
+      },
+      "california_schools": {
+        "text": 62,
+        "integer": 12,
+        "real": 12,
+        "date": 3
+      },
+      "card_games": {
+        "integer": 33,
+        "text": 78,
+        "real": 2,
+        "date": 2
+      },
+      "european_football_2": {
+        "integer": 136,
+        "text": 33,
+        "real": 30
+      },
+      "thrombosis_prediction": {
+        "integer": 26,
+        "date": 5,
+        "real": 13,
+        "text": 20
+      },
+      "toxicology": {
+        "text": 11
+      },
+      "student_club": {
+        "text": 41,
+        "integer": 4,
+        "real": 3
+      },
+      "superhero": {
+        "integer": 22,
+        "text": 9
+      },
+      "codebase_community": {
+        "integer": 41,
+        "text": 18,
+        "datetime": 11,
+        "date": 1
+      }
+    },
+    "total_columns": 4337,
+    "unique_types": 6
+  },
+  "relationships": {
+    "all_relationships": [
+      {
+        "database": "european_football_1",
+        "source_table": "matchs",
+        "target_table": "divisions"
+      },
+      {
+        "database": "sales_in_weather",
+        "source_table": "relation",
+        "target_table": "weather"
+      },
+      {
+        "database": "sales_in_weather",
+        "source_table": "relation",
+        "target_table": "sales_in_weather"
+      },
+      {
+        "database": "soccer_2016",
+        "source_table": "Extra_Runs",
+        "target_table": "Extra_Type"
+      },
+      {
+        "database": "soccer_2016",
+        "source_table": "Player",
+        "target_table": "Country"
+      },
+      {
+        "database": "soccer_2016",
+        "source_table": "Player",
+        "target_table": "Bowling_Style"
+      },
+      {
+        "database": "soccer_2016",
+        "source_table": "Player",
+        "target_table": "Batting_Style"
+      },
+      {
+        "database": "soccer_2016",
+        "source_table": "Umpire",
+        "target_table": "Country"
+      },
+      {
+        "database": "soccer_2016",
+        "source_table": "Venue",
+        "target_table": "City"
+      },
+      {
+        "database": "soccer_2016",
+        "source_table": "Match",
+        "target_table": "Player"
+      },
+      {
+        "database": "soccer_2016",
+        "source_table": "Match",
+        "target_table": "Team"
+      },
+      {
+        "database": "soccer_2016",
+        "source_table": "Match",
+        "target_table": "Out_Type"
+      },
+      {
+        "database": "soccer_2016",
+        "source_table": "Match",
+        "target_table": "Win_By"
+      },
+      {
+        "database": "soccer_2016",
+        "source_table": "Match",
+        "target_table": "Toss_Decision"
+      },
+      {
+        "database": "soccer_2016",
+        "source_table": "Match",
+        "target_table": "Team"
+      },
+      {
+        "database": "soccer_2016",
+        "source_table": "Match",
+        "target_table": "Venue"
+      },
+      {
+        "database": "soccer_2016",
+        "source_table": "Match",
+        "target_table": "Season"
+      },
+      {
+        "database": "soccer_2016",
+        "source_table": "Match",
+        "target_table": "Team"
+      },
+      {
+        "database": "soccer_2016",
+        "source_table": "Match",
+        "target_table": "Team"
+      },
+      {
+        "database": "soccer_2016",
+        "source_table": "Ball_by_Ball",
+        "target_table": "Match"
+      },
+      {
+        "database": "soccer_2016",
+        "source_table": "Batsman_Scored",
+        "target_table": "Match"
+      },
+      {
+        "database": "soccer_2016",
+        "source_table": "Player_Match",
+        "target_table": "Rolee"
+      },
+      {
+        "database": "soccer_2016",
+        "source_table": "Player_Match",
+        "target_table": "Team"
+      },
+      {
+        "database": "soccer_2016",
+        "source_table": "Player_Match",
+        "target_table": "Player"
+      },
+      {
+        "database": "soccer_2016",
+        "source_table": "Player_Match",
+        "target_table": "Match"
+      },
+      {
+        "database": "soccer_2016",
+        "source_table": "Wicket_Taken",
+        "target_table": "Player"
+      },
+      {
+        "database": "soccer_2016",
+        "source_table": "Wicket_Taken",
+        "target_table": "Out_Type"
+      },
+      {
+        "database": "soccer_2016",
+        "source_table": "Wicket_Taken",
+        "target_table": "Player"
+      },
+      {
+        "database": "soccer_2016",
+        "source_table": "Wicket_Taken",
+        "target_table": "Match"
+      },
+      {
+        "database": "restaurant",
+        "source_table": "generalinfo",
+        "target_table": "geographic"
+      },
+      {
+        "database": "restaurant",
+        "source_table": "location",
+        "target_table": "generalinfo"
+      },
+      {
+        "database": "restaurant",
+        "source_table": "location",
+        "target_table": "geographic"
+      },
+      {
+        "database": "movie",
+        "source_table": "characters",
+        "target_table": "movie"
+      },
+      {
+        "database": "movie",
+        "source_table": "characters",
+        "target_table": "actor"
+      },
+      {
+        "database": "olympics",
+        "source_table": "games_city",
+        "target_table": "games"
+      },
+      {
+        "database": "olympics",
+        "source_table": "games_city",
+        "target_table": "city"
+      },
+      {
+        "database": "olympics",
+        "source_table": "games_competitor",
+        "target_table": "person"
+      },
+      {
+        "database": "olympics",
+        "source_table": "games_competitor",
+        "target_table": "games"
+      },
+      {
+        "database": "olympics",
+        "source_table": "person_region",
+        "target_table": "noc_region"
+      },
+      {
+        "database": "olympics",
+        "source_table": "person_region",
+        "target_table": "person"
+      },
+      {
+        "database": "olympics",
+        "source_table": "event",
+        "target_table": "sport"
+      },
+      {
+        "database": "olympics",
+        "source_table": "competitor_event",
+        "target_table": "medal"
+      },
+      {
+        "database": "olympics",
+        "source_table": "competitor_event",
+        "target_table": "event"
+      },
+      {
+        "database": "olympics",
+        "source_table": "competitor_event",
+        "target_table": "games_competitor"
+      },
+      {
+        "database": "language_corpus",
+        "source_table": "pages",
+        "target_table": "langs"
+      },
+      {
+        "database": "language_corpus",
+        "source_table": "langs_words",
+        "target_table": "words"
+      },
+      {
+        "database": "language_corpus",
+        "source_table": "langs_words",
+        "target_table": "langs"
+      },
+      {
+        "database": "language_corpus",
+        "source_table": "pages_words",
+        "target_table": "words"
+      },
+      {
+        "database": "language_corpus",
+        "source_table": "pages_words",
+        "target_table": "pages"
+      },
+      {
+        "database": "language_corpus",
+        "source_table": "biwords",
+        "target_table": "words"
+      },
+      {
+        "database": "language_corpus",
+        "source_table": "biwords",
+        "target_table": "words"
+      },
+      {
+        "database": "language_corpus",
+        "source_table": "biwords",
+        "target_table": "langs"
+      },
+      {
+        "database": "app_store",
+        "source_table": "googleplaystore_user_reviews",
+        "target_table": "googleplaystore"
+      },
+      {
+        "database": "sales",
+        "source_table": "Sales",
+        "target_table": "Products"
+      },
+      {
+        "database": "sales",
+        "source_table": "Sales",
+        "target_table": "Customers"
+      },
+      {
+        "database": "sales",
+        "source_table": "Sales",
+        "target_table": "Employees"
+      },
+      {
+        "database": "video_games",
+        "source_table": "game",
+        "target_table": "genre"
+      },
+      {
+        "database": "video_games",
+        "source_table": "game_publisher",
+        "target_table": "publisher"
+      },
+      {
+        "database": "video_games",
+        "source_table": "game_publisher",
+        "target_table": "game"
+      },
+      {
+        "database": "video_games",
+        "source_table": "game_platform",
+        "target_table": "platform"
+      },
+      {
+        "database": "video_games",
+        "source_table": "game_platform",
+        "target_table": "game_publisher"
+      },
+      {
+        "database": "video_games",
+        "source_table": "region_sales",
+        "target_table": "region"
+      },
+      {
+        "database": "video_games",
+        "source_table": "region_sales",
+        "target_table": "game_platform"
+      },
+      {
+        "database": "image_and_language",
+        "source_table": "IMG_OBJ",
+        "target_table": "OBJ_CLASSES"
+      },
+      {
+        "database": "image_and_language",
+        "source_table": "IMG_OBJ_ATT",
+        "target_table": "IMG_OBJ"
+      },
+      {
+        "database": "image_and_language",
+        "source_table": "IMG_OBJ_ATT",
+        "target_table": "IMG_OBJ"
+      },
+      {
+        "database": "image_and_language",
+        "source_table": "IMG_OBJ_ATT",
+        "target_table": "ATT_CLASSES"
+      },
+      {
+        "database": "image_and_language",
+        "source_table": "IMG_REL",
+        "target_table": "IMG_OBJ"
+      },
+      {
+        "database": "image_and_language",
+        "source_table": "IMG_REL",
+        "target_table": "IMG_OBJ"
+      },
+      {
+        "database": "image_and_language",
+        "source_table": "IMG_REL",
+        "target_table": "IMG_OBJ"
+      },
+      {
+        "database": "image_and_language",
+        "source_table": "IMG_REL",
+        "target_table": "IMG_OBJ"
+      },
+      {
+        "database": "image_and_language",
+        "source_table": "IMG_REL",
+        "target_table": "PRED_CLASSES"
+      },
+      {
+        "database": "authors",
+        "source_table": "Paper",
+        "target_table": "Journal"
+      },
+      {
+        "database": "authors",
+        "source_table": "Paper",
+        "target_table": "Conference"
+      },
+      {
+        "database": "authors",
+        "source_table": "PaperAuthor",
+        "target_table": "Author"
+      },
+      {
+        "database": "authors",
+        "source_table": "PaperAuthor",
+        "target_table": "Paper"
+      },
+      {
+        "database": "movies_4",
+        "source_table": "movie_genres",
+        "target_table": "movie"
+      },
+      {
+        "database": "movies_4",
+        "source_table": "movie_genres",
+        "target_table": "genre"
+      },
+      {
+        "database": "movies_4",
+        "source_table": "movie_languages",
+        "target_table": "language_role"
+      },
+      {
+        "database": "movies_4",
+        "source_table": "movie_languages",
+        "target_table": "movie"
+      },
+      {
+        "database": "movies_4",
+        "source_table": "movie_languages",
+        "target_table": "language"
+      },
+      {
+        "database": "movies_4",
+        "source_table": "movie_crew",
+        "target_table": "person"
+      },
+      {
+        "database": "movies_4",
+        "source_table": "movie_crew",
+        "target_table": "movie"
+      },
+      {
+        "database": "movies_4",
+        "source_table": "movie_crew",
+        "target_table": "department"
+      },
+      {
+        "database": "movies_4",
+        "source_table": "production_country",
+        "target_table": "movie"
+      },
+      {
+        "database": "movies_4",
+        "source_table": "production_country",
+        "target_table": "country"
+      },
+      {
+        "database": "movies_4",
+        "source_table": "movie_cast",
+        "target_table": "person"
+      },
+      {
+        "database": "movies_4",
+        "source_table": "movie_cast",
+        "target_table": "movie"
+      },
+      {
+        "database": "movies_4",
+        "source_table": "movie_cast",
+        "target_table": "gender"
+      },
+      {
+        "database": "social_media",
+        "source_table": "twitter",
+        "target_table": "user"
+      },
+      {
+        "database": "social_media",
+        "source_table": "twitter",
+        "target_table": "location"
+      },
+      {
+        "database": "human_resources",
+        "source_table": "employee",
+        "target_table": "position"
+      },
+      {
+        "database": "human_resources",
+        "source_table": "employee",
+        "target_table": "location"
+      },
+      {
+        "database": "regional_sales",
+        "source_table": "Store Locations",
+        "target_table": "Regions"
+      },
+      {
+        "database": "regional_sales",
+        "source_table": "Sales Orders",
+        "target_table": "Products"
+      },
+      {
+        "database": "regional_sales",
+        "source_table": "Sales Orders",
+        "target_table": "Store Locations"
+      },
+      {
+        "database": "regional_sales",
+        "source_table": "Sales Orders",
+        "target_table": "Customers"
+      },
+      {
+        "database": "regional_sales",
+        "source_table": "Sales Orders",
+        "target_table": "Sales Team"
+      },
+      {
+        "database": "computer_student",
+        "source_table": "advisedBy",
+        "target_table": "person"
+      },
+      {
+        "database": "computer_student",
+        "source_table": "advisedBy",
+        "target_table": "person"
+      },
+      {
+        "database": "computer_student",
+        "source_table": "taughtBy",
+        "target_table": "course"
+      },
+      {
+        "database": "computer_student",
+        "source_table": "taughtBy",
+        "target_table": "person"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "CountryRegionCurrency",
+        "target_table": "Currency"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "CountryRegionCurrency",
+        "target_table": "CountryRegion"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "Person",
+        "target_table": "BusinessEntity"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "BusinessEntityContact",
+        "target_table": "Person"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "BusinessEntityContact",
+        "target_table": "ContactType"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "BusinessEntityContact",
+        "target_table": "BusinessEntity"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "EmailAddress",
+        "target_table": "Person"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "Employee",
+        "target_table": "Person"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "Password",
+        "target_table": "Person"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "PersonCreditCard",
+        "target_table": "Person"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "PersonCreditCard",
+        "target_table": "CreditCard"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "ProductModelProductDescriptionCulture",
+        "target_table": "Culture"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "ProductModelProductDescriptionCulture",
+        "target_table": "ProductDescription"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "ProductModelProductDescriptionCulture",
+        "target_table": "ProductModel"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "ProductSubcategory",
+        "target_table": "ProductCategory"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "SalesTerritory",
+        "target_table": "CountryRegion"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "SalesPerson",
+        "target_table": "SalesTerritory"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "SalesPerson",
+        "target_table": "Employee"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "SalesPersonQuotaHistory",
+        "target_table": "SalesPerson"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "SalesTerritoryHistory",
+        "target_table": "SalesTerritory"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "SalesTerritoryHistory",
+        "target_table": "SalesPerson"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "BusinessEntityAddress",
+        "target_table": "BusinessEntity"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "BusinessEntityAddress",
+        "target_table": "AddressType"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "BusinessEntityAddress",
+        "target_table": "Address"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "SalesTaxRate",
+        "target_table": "StateProvince"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "Store",
+        "target_table": "SalesPerson"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "Store",
+        "target_table": "BusinessEntity"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "SalesOrderHeaderSalesReason",
+        "target_table": "SalesReason"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "SalesOrderHeaderSalesReason",
+        "target_table": "SalesOrderHeader"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "ProductCostHistory",
+        "target_table": "Product"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "ProductDocument",
+        "target_table": "Document"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "ProductDocument",
+        "target_table": "Product"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "ProductInventory",
+        "target_table": "Location"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "ProductInventory",
+        "target_table": "Product"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "ProductProductPhoto",
+        "target_table": "ProductPhoto"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "ProductProductPhoto",
+        "target_table": "Product"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "ProductReview",
+        "target_table": "Product"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "ShoppingCartItem",
+        "target_table": "Product"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "SpecialOfferProduct",
+        "target_table": "Product"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "SpecialOfferProduct",
+        "target_table": "SpecialOffer"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "SalesOrderDetail",
+        "target_table": "SpecialOfferProduct"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "SalesOrderDetail",
+        "target_table": "SpecialOfferProduct"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "SalesOrderDetail",
+        "target_table": "SalesOrderHeader"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "TransactionHistory",
+        "target_table": "Product"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "Vendor",
+        "target_table": "BusinessEntity"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "ProductVendor",
+        "target_table": "UnitMeasure"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "ProductVendor",
+        "target_table": "Vendor"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "ProductVendor",
+        "target_table": "Product"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "PurchaseOrderHeader",
+        "target_table": "ShipMethod"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "PurchaseOrderHeader",
+        "target_table": "Vendor"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "PurchaseOrderHeader",
+        "target_table": "Employee"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "PurchaseOrderDetail",
+        "target_table": "Product"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "PurchaseOrderDetail",
+        "target_table": "PurchaseOrderHeader"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "WorkOrder",
+        "target_table": "ScrapReason"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "WorkOrder",
+        "target_table": "Product"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "WorkOrderRouting",
+        "target_table": "Location"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "WorkOrderRouting",
+        "target_table": "WorkOrder"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "Customer",
+        "target_table": "Store"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "Customer",
+        "target_table": "SalesTerritory"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "Customer",
+        "target_table": "Person"
+      },
+      {
+        "database": "works_cycles",
+        "source_table": "ProductListPriceHistory",
+        "target_table": "Product"
+      },
+      {
+        "database": "food_inspection_2",
+        "source_table": "inspection",
+        "target_table": "establishment"
+      },
+      {
+        "database": "food_inspection_2",
+        "source_table": "inspection",
+        "target_table": "employee"
+      },
+      {
+        "database": "food_inspection_2",
+        "source_table": "violation",
+        "target_table": "inspection_point"
+      },
+      {
+        "database": "food_inspection_2",
+        "source_table": "violation",
+        "target_table": "inspection"
+      },
+      {
+        "database": "citeseer",
+        "source_table": "content",
+        "target_table": "paper"
+      },
+      {
+        "database": "law_episode",
+        "source_table": "Keyword",
+        "target_table": "Episode"
+      },
+      {
+        "database": "law_episode",
+        "source_table": "Award",
+        "target_table": "Person"
+      },
+      {
+        "database": "law_episode",
+        "source_table": "Award",
+        "target_table": "Episode"
+      },
+      {
+        "database": "law_episode",
+        "source_table": "Credit",
+        "target_table": "Person"
+      },
+      {
+        "database": "law_episode",
+        "source_table": "Credit",
+        "target_table": "Episode"
+      },
+      {
+        "database": "law_episode",
+        "source_table": "Vote",
+        "target_table": "Episode"
+      },
+      {
+        "database": "cs_semester",
+        "source_table": "RA",
+        "target_table": "student"
+      },
+      {
+        "database": "cs_semester",
+        "source_table": "RA",
+        "target_table": "prof"
+      },
+      {
+        "database": "cs_semester",
+        "source_table": "registration",
+        "target_table": "student"
+      },
+      {
+        "database": "cs_semester",
+        "source_table": "registration",
+        "target_table": "course"
+      },
+      {
+        "database": "legislator",
+        "source_table": "current-terms",
+        "target_table": "current"
+      },
+      {
+        "database": "legislator",
+        "source_table": "historical-terms",
+        "target_table": "historical"
+      },
+      {
+        "database": "legislator",
+        "source_table": "social-media",
+        "target_table": "current"
+      },
+      {
+        "database": "world",
+        "source_table": "City",
+        "target_table": "Country"
+      },
+      {
+        "database": "world",
+        "source_table": "CountryLanguage",
+        "target_table": "Country"
+      },
+      {
+        "database": "cookbook",
+        "source_table": "Nutrition",
+        "target_table": "Recipe"
+      },
+      {
+        "database": "cookbook",
+        "source_table": "Quantity",
+        "target_table": "Nutrition"
+      },
+      {
+        "database": "cookbook",
+        "source_table": "Quantity",
+        "target_table": "Ingredient"
+      },
+      {
+        "database": "cookbook",
+        "source_table": "Quantity",
+        "target_table": "Recipe"
+      },
+      {
+        "database": "university",
+        "source_table": "ranking_criteria",
+        "target_table": "ranking_system"
+      },
+      {
+        "database": "university",
+        "source_table": "university",
+        "target_table": "country"
+      },
+      {
+        "database": "university",
+        "source_table": "university_ranking_year",
+        "target_table": "university"
+      },
+      {
+        "database": "university",
+        "source_table": "university_ranking_year",
+        "target_table": "ranking_criteria"
+      },
+      {
+        "database": "university",
+        "source_table": "university_year",
+        "target_table": "university"
+      },
+      {
+        "database": "books",
+        "source_table": "address",
+        "target_table": "country"
+      },
+      {
+        "database": "books",
+        "source_table": "customer_address",
+        "target_table": "customer"
+      },
+      {
+        "database": "books",
+        "source_table": "customer_address",
+        "target_table": "address"
+      },
+      {
+        "database": "books",
+        "source_table": "book",
+        "target_table": "publisher"
+      },
+      {
+        "database": "books",
+        "source_table": "book",
+        "target_table": "book_language"
+      },
+      {
+        "database": "books",
+        "source_table": "book_author",
+        "target_table": "book"
+      },
+      {
+        "database": "books",
+        "source_table": "book_author",
+        "target_table": "author"
+      },
+      {
+        "database": "shipping",
+        "source_table": "shipment",
+        "target_table": "truck"
+      },
+      {
+        "database": "shipping",
+        "source_table": "shipment",
+        "target_table": "driver"
+      },
+      {
+        "database": "shipping",
+        "source_table": "shipment",
+        "target_table": "city"
+      },
+      {
+        "database": "shipping",
+        "source_table": "shipment",
+        "target_table": "customer"
+      },
+      {
+        "database": "food_inspection",
+        "source_table": "inspections",
+        "target_table": "businesses"
+      },
+      {
+        "database": "food_inspection",
+        "source_table": "violations",
+        "target_table": "businesses"
+      },
+      {
+        "database": "movie_platform",
+        "source_table": "lists",
+        "target_table": "lists_users"
+      },
+      {
+        "database": "movie_platform",
+        "source_table": "ratings_users",
+        "target_table": "lists_users"
+      },
+      {
+        "database": "movie_platform",
+        "source_table": "lists_users",
+        "target_table": "lists"
+      },
+      {
+        "database": "movie_platform",
+        "source_table": "lists_users",
+        "target_table": "lists"
+      },
+      {
+        "database": "movie_platform",
+        "source_table": "ratings",
+        "target_table": "ratings_users"
+      },
+      {
+        "database": "movie_platform",
+        "source_table": "ratings",
+        "target_table": "lists_users"
+      },
+      {
+        "database": "movie_platform",
+        "source_table": "ratings",
+        "target_table": "movies"
+      },
+      {
+        "database": "book_publishing_company",
+        "source_table": "employee",
+        "target_table": "publishers"
+      },
+      {
+        "database": "book_publishing_company",
+        "source_table": "employee",
+        "target_table": "jobs"
+      },
+      {
+        "database": "book_publishing_company",
+        "source_table": "pub_info",
+        "target_table": "publishers"
+      },
+      {
+        "database": "book_publishing_company",
+        "source_table": "discounts",
+        "target_table": "stores"
+      },
+      {
+        "database": "book_publishing_company",
+        "source_table": "titles",
+        "target_table": "publishers"
+      },
+      {
+        "database": "book_publishing_company",
+        "source_table": "roysched",
+        "target_table": "titles"
+      },
+      {
+        "database": "book_publishing_company",
+        "source_table": "sales",
+        "target_table": "titles"
+      },
+      {
+        "database": "book_publishing_company",
+        "source_table": "sales",
+        "target_table": "stores"
+      },
+      {
+        "database": "book_publishing_company",
+        "source_table": "titleauthor",
+        "target_table": "titles"
+      },
+      {
+        "database": "book_publishing_company",
+        "source_table": "titleauthor",
+        "target_table": "authors"
+      },
+      {
+        "database": "car_retails",
+        "source_table": "employees",
+        "target_table": "offices"
+      },
+      {
+        "database": "car_retails",
+        "source_table": "customers",
+        "target_table": "employees"
+      },
+      {
+        "database": "car_retails",
+        "source_table": "orders",
+        "target_table": "customers"
+      },
+      {
+        "database": "car_retails",
+        "source_table": "payments",
+        "target_table": "customers"
+      },
+      {
+        "database": "car_retails",
+        "source_table": "products",
+        "target_table": "productlines"
+      },
+      {
+        "database": "hockey",
+        "source_table": "Coaches",
+        "target_table": "Teams"
+      },
+      {
+        "database": "hockey",
+        "source_table": "Coaches",
+        "target_table": "Teams"
+      },
+      {
+        "database": "hockey",
+        "source_table": "AwardsCoaches",
+        "target_table": "Coaches"
+      },
+      {
+        "database": "hockey",
+        "source_table": "Master",
+        "target_table": "Coaches"
+      },
+      {
+        "database": "hockey",
+        "source_table": "AwardsPlayers",
+        "target_table": "Master"
+      },
+      {
+        "database": "hockey",
+        "source_table": "CombinedShutouts",
+        "target_table": "Master"
+      },
+      {
+        "database": "hockey",
+        "source_table": "CombinedShutouts",
+        "target_table": "Master"
+      },
+      {
+        "database": "hockey",
+        "source_table": "Goalies",
+        "target_table": "Master"
+      },
+      {
+        "database": "hockey",
+        "source_table": "Goalies",
+        "target_table": "Teams"
+      },
+      {
+        "database": "hockey",
+        "source_table": "Goalies",
+        "target_table": "Teams"
+      },
+      {
+        "database": "hockey",
+        "source_table": "GoaliesSC",
+        "target_table": "Master"
+      },
+      {
+        "database": "hockey",
+        "source_table": "GoaliesSC",
+        "target_table": "Teams"
+      },
+      {
+        "database": "hockey",
+        "source_table": "GoaliesSC",
+        "target_table": "Teams"
+      },
+      {
+        "database": "hockey",
+        "source_table": "GoaliesShootout",
+        "target_table": "Master"
+      },
+      {
+        "database": "hockey",
+        "source_table": "GoaliesShootout",
+        "target_table": "Teams"
+      },
+      {
+        "database": "hockey",
+        "source_table": "GoaliesShootout",
+        "target_table": "Teams"
+      },
+      {
+        "database": "hockey",
+        "source_table": "Scoring",
+        "target_table": "Master"
+      },
+      {
+        "database": "hockey",
+        "source_table": "Scoring",
+        "target_table": "Teams"
+      },
+      {
+        "database": "hockey",
+        "source_table": "Scoring",
+        "target_table": "Teams"
+      },
+      {
+        "database": "hockey",
+        "source_table": "ScoringSC",
+        "target_table": "Master"
+      },
+      {
+        "database": "hockey",
+        "source_table": "ScoringSC",
+        "target_table": "Teams"
+      },
+      {
+        "database": "hockey",
+        "source_table": "ScoringSC",
+        "target_table": "Teams"
+      },
+      {
+        "database": "hockey",
+        "source_table": "ScoringShootout",
+        "target_table": "Master"
+      },
+      {
+        "database": "hockey",
+        "source_table": "ScoringShootout",
+        "target_table": "Teams"
+      },
+      {
+        "database": "hockey",
+        "source_table": "ScoringShootout",
+        "target_table": "Teams"
+      },
+      {
+        "database": "hockey",
+        "source_table": "ScoringSup",
+        "target_table": "Master"
+      },
+      {
+        "database": "hockey",
+        "source_table": "SeriesPost",
+        "target_table": "Teams"
+      },
+      {
+        "database": "hockey",
+        "source_table": "SeriesPost",
+        "target_table": "Teams"
+      },
+      {
+        "database": "hockey",
+        "source_table": "SeriesPost",
+        "target_table": "Teams"
+      },
+      {
+        "database": "hockey",
+        "source_table": "SeriesPost",
+        "target_table": "Teams"
+      },
+      {
+        "database": "hockey",
+        "source_table": "TeamSplits",
+        "target_table": "Teams"
+      },
+      {
+        "database": "hockey",
+        "source_table": "TeamSplits",
+        "target_table": "Teams"
+      },
+      {
+        "database": "hockey",
+        "source_table": "TeamVsTeam",
+        "target_table": "Teams"
+      },
+      {
+        "database": "hockey",
+        "source_table": "TeamVsTeam",
+        "target_table": "Teams"
+      },
+      {
+        "database": "hockey",
+        "source_table": "TeamVsTeam",
+        "target_table": "Teams"
+      },
+      {
+        "database": "hockey",
+        "source_table": "TeamVsTeam",
+        "target_table": "Teams"
+      },
+      {
+        "database": "hockey",
+        "source_table": "TeamsHalf",
+        "target_table": "Teams"
+      },
+      {
+        "database": "hockey",
+        "source_table": "TeamsHalf",
+        "target_table": "Teams"
+      },
+      {
+        "database": "hockey",
+        "source_table": "TeamsPost",
+        "target_table": "Teams"
+      },
+      {
+        "database": "hockey",
+        "source_table": "TeamsPost",
+        "target_table": "Teams"
+      },
+      {
+        "database": "hockey",
+        "source_table": "TeamsSC",
+        "target_table": "Teams"
+      },
+      {
+        "database": "hockey",
+        "source_table": "TeamsSC",
+        "target_table": "Teams"
+      },
+      {
+        "database": "address",
+        "source_table": "congress",
+        "target_table": "state"
+      },
+      {
+        "database": "address",
+        "source_table": "zip_data",
+        "target_table": "CBSA"
+      },
+      {
+        "database": "address",
+        "source_table": "zip_data",
+        "target_table": "state"
+      },
+      {
+        "database": "address",
+        "source_table": "alias",
+        "target_table": "zip_data"
+      },
+      {
+        "database": "address",
+        "source_table": "area_code",
+        "target_table": "zip_data"
+      },
+      {
+        "database": "address",
+        "source_table": "avoid",
+        "target_table": "zip_data"
+      },
+      {
+        "database": "address",
+        "source_table": "country",
+        "target_table": "state"
+      },
+      {
+        "database": "address",
+        "source_table": "country",
+        "target_table": "zip_data"
+      },
+      {
+        "database": "address",
+        "source_table": "zip_congress",
+        "target_table": "zip_data"
+      },
+      {
+        "database": "address",
+        "source_table": "zip_congress",
+        "target_table": "congress"
+      },
+      {
+        "database": "menu",
+        "source_table": "MenuPage",
+        "target_table": "Menu"
+      },
+      {
+        "database": "menu",
+        "source_table": "MenuItem",
+        "target_table": "MenuPage"
+      },
+      {
+        "database": "menu",
+        "source_table": "MenuItem",
+        "target_table": "Dish"
+      },
+      {
+        "database": "professional_basketball",
+        "source_table": "awards_players",
+        "target_table": "players"
+      },
+      {
+        "database": "professional_basketball",
+        "source_table": "coaches",
+        "target_table": "teams"
+      },
+      {
+        "database": "professional_basketball",
+        "source_table": "coaches",
+        "target_table": "teams"
+      },
+      {
+        "database": "professional_basketball",
+        "source_table": "draft",
+        "target_table": "teams"
+      },
+      {
+        "database": "professional_basketball",
+        "source_table": "draft",
+        "target_table": "teams"
+      },
+      {
+        "database": "professional_basketball",
+        "source_table": "player_allstar",
+        "target_table": "players"
+      },
+      {
+        "database": "professional_basketball",
+        "source_table": "awards_coaches",
+        "target_table": "coaches"
+      },
+      {
+        "database": "professional_basketball",
+        "source_table": "awards_coaches",
+        "target_table": "coaches"
+      },
+      {
+        "database": "professional_basketball",
+        "source_table": "players_teams",
+        "target_table": "teams"
+      },
+      {
+        "database": "professional_basketball",
+        "source_table": "players_teams",
+        "target_table": "teams"
+      },
+      {
+        "database": "professional_basketball",
+        "source_table": "series_post",
+        "target_table": "teams"
+      },
+      {
+        "database": "professional_basketball",
+        "source_table": "series_post",
+        "target_table": "teams"
+      },
+      {
+        "database": "professional_basketball",
+        "source_table": "series_post",
+        "target_table": "teams"
+      },
+      {
+        "database": "professional_basketball",
+        "source_table": "series_post",
+        "target_table": "teams"
+      },
+      {
+        "database": "cars",
+        "source_table": "data",
+        "target_table": "price"
+      },
+      {
+        "database": "cars",
+        "source_table": "production",
+        "target_table": "price"
+      },
+      {
+        "database": "cars",
+        "source_table": "production",
+        "target_table": "data"
+      },
+      {
+        "database": "cars",
+        "source_table": "production",
+        "target_table": "country"
+      },
+      {
+        "database": "synthea",
+        "source_table": "encounters",
+        "target_table": "patients"
+      },
+      {
+        "database": "synthea",
+        "source_table": "allergies",
+        "target_table": "patients"
+      },
+      {
+        "database": "synthea",
+        "source_table": "allergies",
+        "target_table": "encounters"
+      },
+      {
+        "database": "synthea",
+        "source_table": "careplans",
+        "target_table": "patients"
+      },
+      {
+        "database": "synthea",
+        "source_table": "careplans",
+        "target_table": "encounters"
+      },
+      {
+        "database": "synthea",
+        "source_table": "conditions",
+        "target_table": "all_prevalences"
+      },
+      {
+        "database": "synthea",
+        "source_table": "conditions",
+        "target_table": "patients"
+      },
+      {
+        "database": "synthea",
+        "source_table": "conditions",
+        "target_table": "encounters"
+      },
+      {
+        "database": "synthea",
+        "source_table": "immunizations",
+        "target_table": "patients"
+      },
+      {
+        "database": "synthea",
+        "source_table": "immunizations",
+        "target_table": "encounters"
+      },
+      {
+        "database": "synthea",
+        "source_table": "medications",
+        "target_table": "patients"
+      },
+      {
+        "database": "synthea",
+        "source_table": "medications",
+        "target_table": "encounters"
+      },
+      {
+        "database": "synthea",
+        "source_table": "observations",
+        "target_table": "patients"
+      },
+      {
+        "database": "synthea",
+        "source_table": "observations",
+        "target_table": "encounters"
+      },
+      {
+        "database": "synthea",
+        "source_table": "procedures",
+        "target_table": "patients"
+      },
+      {
+        "database": "synthea",
+        "source_table": "procedures",
+        "target_table": "encounters"
+      },
+      {
+        "database": "genes",
+        "source_table": "Genes",
+        "target_table": "Classification"
+      },
+      {
+        "database": "genes",
+        "source_table": "Interactions",
+        "target_table": "Classification"
+      },
+      {
+        "database": "genes",
+        "source_table": "Interactions",
+        "target_table": "Classification"
+      },
+      {
+        "database": "retails",
+        "source_table": "customer",
+        "target_table": "nation"
+      },
+      {
+        "database": "retails",
+        "source_table": "lineitem",
+        "target_table": "partsupp"
+      },
+      {
+        "database": "retails",
+        "source_table": "lineitem",
+        "target_table": "partsupp"
+      },
+      {
+        "database": "retails",
+        "source_table": "lineitem",
+        "target_table": "orders"
+      },
+      {
+        "database": "retails",
+        "source_table": "nation",
+        "target_table": "region"
+      },
+      {
+        "database": "retails",
+        "source_table": "orders",
+        "target_table": "customer"
+      },
+      {
+        "database": "retails",
+        "source_table": "partsupp",
+        "target_table": "supplier"
+      },
+      {
+        "database": "retails",
+        "source_table": "partsupp",
+        "target_table": "part"
+      },
+      {
+        "database": "retails",
+        "source_table": "supplier",
+        "target_table": "nation"
+      },
+      {
+        "database": "talkingdata",
+        "source_table": "app_events",
+        "target_table": "events"
+      },
+      {
+        "database": "talkingdata",
+        "source_table": "app_events_relevant",
+        "target_table": "app_all"
+      },
+      {
+        "database": "talkingdata",
+        "source_table": "app_events_relevant",
+        "target_table": "events_relevant"
+      },
+      {
+        "database": "talkingdata",
+        "source_table": "app_labels",
+        "target_table": "app_all"
+      },
+      {
+        "database": "talkingdata",
+        "source_table": "app_labels",
+        "target_table": "label_categories"
+      },
+      {
+        "database": "talkingdata",
+        "source_table": "events_relevant",
+        "target_table": "gender_age"
+      },
+      {
+        "database": "talkingdata",
+        "source_table": "gender_age",
+        "target_table": "phone_brand_device_model2"
+      },
+      {
+        "database": "beer_factory",
+        "source_table": "geolocation",
+        "target_table": "location"
+      },
+      {
+        "database": "beer_factory",
+        "source_table": "location",
+        "target_table": "geolocation"
+      },
+      {
+        "database": "beer_factory",
+        "source_table": "rootbeer",
+        "target_table": "rootbeerbrand"
+      },
+      {
+        "database": "beer_factory",
+        "source_table": "rootbeer",
+        "target_table": "location"
+      },
+      {
+        "database": "beer_factory",
+        "source_table": "rootbeer",
+        "target_table": "geolocation"
+      },
+      {
+        "database": "beer_factory",
+        "source_table": "rootbeerreview",
+        "target_table": "rootbeerbrand"
+      },
+      {
+        "database": "beer_factory",
+        "source_table": "rootbeerreview",
+        "target_table": "customers"
+      },
+      {
+        "database": "beer_factory",
+        "source_table": "transaction",
+        "target_table": "rootbeer"
+      },
+      {
+        "database": "beer_factory",
+        "source_table": "transaction",
+        "target_table": "location"
+      },
+      {
+        "database": "beer_factory",
+        "source_table": "transaction",
+        "target_table": "customers"
+      },
+      {
+        "database": "chicago_crime",
+        "source_table": "Neighborhood",
+        "target_table": "Community_Area"
+      },
+      {
+        "database": "chicago_crime",
+        "source_table": "Crime",
+        "target_table": "FBI_Code"
+      },
+      {
+        "database": "chicago_crime",
+        "source_table": "Crime",
+        "target_table": "Community_Area"
+      },
+      {
+        "database": "chicago_crime",
+        "source_table": "Crime",
+        "target_table": "District"
+      },
+      {
+        "database": "chicago_crime",
+        "source_table": "Crime",
+        "target_table": "IUCR"
+      },
+      {
+        "database": "chicago_crime",
+        "source_table": "Crime",
+        "target_table": "Ward"
+      },
+      {
+        "database": "student_loan",
+        "source_table": "disabled",
+        "target_table": "person"
+      },
+      {
+        "database": "student_loan",
+        "source_table": "enlist",
+        "target_table": "person"
+      },
+      {
+        "database": "student_loan",
+        "source_table": "filed_for_bankruptcy",
+        "target_table": "person"
+      },
+      {
+        "database": "student_loan",
+        "source_table": "longest_absense_from_school",
+        "target_table": "person"
+      },
+      {
+        "database": "student_loan",
+        "source_table": "male",
+        "target_table": "person"
+      },
+      {
+        "database": "student_loan",
+        "source_table": "no_payment_due",
+        "target_table": "bool"
+      },
+      {
+        "database": "student_loan",
+        "source_table": "no_payment_due",
+        "target_table": "person"
+      },
+      {
+        "database": "student_loan",
+        "source_table": "unemployed",
+        "target_table": "person"
+      },
+      {
+        "database": "student_loan",
+        "source_table": "enrolled",
+        "target_table": "person"
+      },
+      {
+        "database": "retail_world",
+        "source_table": "Products",
+        "target_table": "Suppliers"
+      },
+      {
+        "database": "retail_world",
+        "source_table": "Products",
+        "target_table": "Categories"
+      },
+      {
+        "database": "retail_world",
+        "source_table": "Orders",
+        "target_table": "Shippers"
+      },
+      {
+        "database": "retail_world",
+        "source_table": "Orders",
+        "target_table": "Customers"
+      },
+      {
+        "database": "retail_world",
+        "source_table": "Orders",
+        "target_table": "Employees"
+      },
+      {
+        "database": "retail_world",
+        "source_table": "OrderDetails",
+        "target_table": "Products"
+      },
+      {
+        "database": "retail_world",
+        "source_table": "OrderDetails",
+        "target_table": "Orders"
+      },
+      {
+        "database": "disney",
+        "source_table": "characters",
+        "target_table": "voice-actors"
+      },
+      {
+        "database": "disney",
+        "source_table": "director",
+        "target_table": "characters"
+      },
+      {
+        "database": "disney",
+        "source_table": "movies_total_gross",
+        "target_table": "characters"
+      },
+      {
+        "database": "disney",
+        "source_table": "voice-actors",
+        "target_table": "characters"
+      },
+      {
+        "database": "college_completion",
+        "source_table": "institution_grads",
+        "target_table": "institution_details"
+      },
+      {
+        "database": "college_completion",
+        "source_table": "state_sector_grads",
+        "target_table": "state_sector_details"
+      },
+      {
+        "database": "college_completion",
+        "source_table": "state_sector_grads",
+        "target_table": "institution_details"
+      },
+      {
+        "database": "college_completion",
+        "source_table": "state_sector_details",
+        "target_table": "institution_details"
+      },
+      {
+        "database": "ice_hockey_draft",
+        "source_table": "PlayerInfo",
+        "target_table": "weight_info"
+      },
+      {
+        "database": "ice_hockey_draft",
+        "source_table": "PlayerInfo",
+        "target_table": "height_info"
+      },
+      {
+        "database": "ice_hockey_draft",
+        "source_table": "SeasonStatus",
+        "target_table": "PlayerInfo"
+      },
+      {
+        "database": "world_development_indicators",
+        "source_table": "CountryNotes",
+        "target_table": "Country"
+      },
+      {
+        "database": "world_development_indicators",
+        "source_table": "CountryNotes",
+        "target_table": "Series"
+      },
+      {
+        "database": "world_development_indicators",
+        "source_table": "FootNotes",
+        "target_table": "Country"
+      },
+      {
+        "database": "world_development_indicators",
+        "source_table": "FootNotes",
+        "target_table": "Series"
+      },
+      {
+        "database": "world_development_indicators",
+        "source_table": "Indicators",
+        "target_table": "Country"
+      },
+      {
+        "database": "world_development_indicators",
+        "source_table": "SeriesNotes",
+        "target_table": "Series"
+      },
+      {
+        "database": "airline",
+        "source_table": "Airlines",
+        "target_table": "Air Carriers"
+      },
+      {
+        "database": "airline",
+        "source_table": "Airlines",
+        "target_table": "Airports"
+      },
+      {
+        "database": "airline",
+        "source_table": "Airlines",
+        "target_table": "Airports"
+      },
+      {
+        "database": "retail_complains",
+        "source_table": "callcenterlogs",
+        "target_table": "client"
+      },
+      {
+        "database": "retail_complains",
+        "source_table": "client",
+        "target_table": "district"
+      },
+      {
+        "database": "retail_complains",
+        "source_table": "district",
+        "target_table": "state"
+      },
+      {
+        "database": "retail_complains",
+        "source_table": "events",
+        "target_table": "client"
+      },
+      {
+        "database": "retail_complains",
+        "source_table": "events",
+        "target_table": "callcenterlogs"
+      },
+      {
+        "database": "retail_complains",
+        "source_table": "reviews",
+        "target_table": "district"
+      },
+      {
+        "database": "trains",
+        "source_table": "cars",
+        "target_table": "trains"
+      },
+      {
+        "database": "donor",
+        "source_table": "donations",
+        "target_table": "projects"
+      },
+      {
+        "database": "donor",
+        "source_table": "resources",
+        "target_table": "projects"
+      },
+      {
+        "database": "simpson_episodes",
+        "source_table": "Award",
+        "target_table": "Episode"
+      },
+      {
+        "database": "simpson_episodes",
+        "source_table": "Award",
+        "target_table": "Person"
+      },
+      {
+        "database": "simpson_episodes",
+        "source_table": "Character_Award",
+        "target_table": "Award"
+      },
+      {
+        "database": "simpson_episodes",
+        "source_table": "Credit",
+        "target_table": "Person"
+      },
+      {
+        "database": "simpson_episodes",
+        "source_table": "Credit",
+        "target_table": "Episode"
+      },
+      {
+        "database": "simpson_episodes",
+        "source_table": "Keyword",
+        "target_table": "Episode"
+      },
+      {
+        "database": "simpson_episodes",
+        "source_table": "Vote",
+        "target_table": "Episode"
+      },
+      {
+        "database": "shooting",
+        "source_table": "officers",
+        "target_table": "Incidents"
+      },
+      {
+        "database": "shooting",
+        "source_table": "subjects",
+        "target_table": "Incidents"
+      },
+      {
+        "database": "superstore",
+        "source_table": "central_superstore",
+        "target_table": "product"
+      },
+      {
+        "database": "superstore",
+        "source_table": "central_superstore",
+        "target_table": "product"
+      },
+      {
+        "database": "superstore",
+        "source_table": "central_superstore",
+        "target_table": "people"
+      },
+      {
+        "database": "superstore",
+        "source_table": "central_superstore",
+        "target_table": "people"
+      },
+      {
+        "database": "superstore",
+        "source_table": "east_superstore",
+        "target_table": "product"
+      },
+      {
+        "database": "superstore",
+        "source_table": "east_superstore",
+        "target_table": "product"
+      },
+      {
+        "database": "superstore",
+        "source_table": "east_superstore",
+        "target_table": "people"
+      },
+      {
+        "database": "superstore",
+        "source_table": "east_superstore",
+        "target_table": "people"
+      },
+      {
+        "database": "superstore",
+        "source_table": "south_superstore",
+        "target_table": "product"
+      },
+      {
+        "database": "superstore",
+        "source_table": "south_superstore",
+        "target_table": "product"
+      },
+      {
+        "database": "superstore",
+        "source_table": "south_superstore",
+        "target_table": "people"
+      },
+      {
+        "database": "superstore",
+        "source_table": "south_superstore",
+        "target_table": "people"
+      },
+      {
+        "database": "superstore",
+        "source_table": "west_superstore",
+        "target_table": "product"
+      },
+      {
+        "database": "superstore",
+        "source_table": "west_superstore",
+        "target_table": "product"
+      },
+      {
+        "database": "superstore",
+        "source_table": "west_superstore",
+        "target_table": "people"
+      },
+      {
+        "database": "superstore",
+        "source_table": "west_superstore",
+        "target_table": "people"
+      },
+      {
+        "database": "debit_card_specializing",
+        "source_table": "year and month",
+        "target_table": "customers"
+      },
+      {
+        "database": "financial",
+        "source_table": "account",
+        "target_table": "district"
+      },
+      {
+        "database": "financial",
+        "source_table": "card",
+        "target_table": "disposition"
+      },
+      {
+        "database": "financial",
+        "source_table": "client",
+        "target_table": "district"
+      },
+      {
+        "database": "financial",
+        "source_table": "disposition",
+        "target_table": "client"
+      },
+      {
+        "database": "financial",
+        "source_table": "disposition",
+        "target_table": "account"
+      },
+      {
+        "database": "financial",
+        "source_table": "loan",
+        "target_table": "account"
+      },
+      {
+        "database": "financial",
+        "source_table": "order",
+        "target_table": "account"
+      },
+      {
+        "database": "financial",
+        "source_table": "transaction",
+        "target_table": "account"
+      },
+      {
+        "database": "formula_1",
+        "source_table": "races",
+        "target_table": "circuits"
+      },
+      {
+        "database": "formula_1",
+        "source_table": "races",
+        "target_table": "seasons"
+      },
+      {
+        "database": "formula_1",
+        "source_table": "constructor results",
+        "target_table": "constructors"
+      },
+      {
+        "database": "formula_1",
+        "source_table": "constructor results",
+        "target_table": "races"
+      },
+      {
+        "database": "formula_1",
+        "source_table": "constructor standings",
+        "target_table": "constructors"
+      },
+      {
+        "database": "formula_1",
+        "source_table": "constructor standings",
+        "target_table": "races"
+      },
+      {
+        "database": "formula_1",
+        "source_table": "driver standings",
+        "target_table": "drivers"
+      },
+      {
+        "database": "formula_1",
+        "source_table": "driver standings",
+        "target_table": "races"
+      },
+      {
+        "database": "formula_1",
+        "source_table": "lap times",
+        "target_table": "drivers"
+      },
+      {
+        "database": "formula_1",
+        "source_table": "lap times",
+        "target_table": "races"
+      },
+      {
+        "database": "formula_1",
+        "source_table": "pit stops",
+        "target_table": "drivers"
+      },
+      {
+        "database": "formula_1",
+        "source_table": "pit stops",
+        "target_table": "races"
+      },
+      {
+        "database": "formula_1",
+        "source_table": "qualifying",
+        "target_table": "constructors"
+      },
+      {
+        "database": "formula_1",
+        "source_table": "qualifying",
+        "target_table": "drivers"
+      },
+      {
+        "database": "formula_1",
+        "source_table": "qualifying",
+        "target_table": "races"
+      },
+      {
+        "database": "formula_1",
+        "source_table": "results",
+        "target_table": "status"
+      },
+      {
+        "database": "formula_1",
+        "source_table": "results",
+        "target_table": "constructors"
+      },
+      {
+        "database": "formula_1",
+        "source_table": "results",
+        "target_table": "drivers"
+      },
+      {
+        "database": "formula_1",
+        "source_table": "results",
+        "target_table": "races"
+      },
+      {
+        "database": "california_schools",
+        "source_table": "free and reduced-price meals",
+        "target_table": "schools"
+      },
+      {
+        "database": "california_schools",
+        "source_table": "sat scores",
+        "target_table": "schools"
+      },
+      {
+        "database": "card_games",
+        "source_table": "foreign data",
+        "target_table": "cards"
+      },
+      {
+        "database": "card_games",
+        "source_table": "legalities",
+        "target_table": "cards"
+      },
+      {
+        "database": "card_games",
+        "source_table": "set translations",
+        "target_table": "sets"
+      },
+      {
+        "database": "card_games",
+        "source_table": "ruling",
+        "target_table": "cards"
+      },
+      {
+        "database": "european_football_2",
+        "source_table": "Player Attributes",
+        "target_table": "Player"
+      },
+      {
+        "database": "european_football_2",
+        "source_table": "Player Attributes",
+        "target_table": "Player"
+      },
+      {
+        "database": "european_football_2",
+        "source_table": "League",
+        "target_table": "Country"
+      },
+      {
+        "database": "european_football_2",
+        "source_table": "Team Attributes",
+        "target_table": "Team"
+      },
+      {
+        "database": "european_football_2",
+        "source_table": "Team Attributes",
+        "target_table": "Team"
+      },
+      {
+        "database": "european_football_2",
+        "source_table": "Match",
+        "target_table": "Player"
+      },
+      {
+        "database": "european_football_2",
+        "source_table": "Match",
+        "target_table": "Player"
+      },
+      {
+        "database": "european_football_2",
+        "source_table": "Match",
+        "target_table": "Player"
+      },
+      {
+        "database": "european_football_2",
+        "source_table": "Match",
+        "target_table": "Player"
+      },
+      {
+        "database": "european_football_2",
+        "source_table": "Match",
+        "target_table": "Player"
+      },
+      {
+        "database": "european_football_2",
+        "source_table": "Match",
+        "target_table": "Player"
+      },
+      {
+        "database": "european_football_2",
+        "source_table": "Match",
+        "target_table": "Player"
+      },
+      {
+        "database": "european_football_2",
+        "source_table": "Match",
+        "target_table": "Player"
+      },
+      {
+        "database": "european_football_2",
+        "source_table": "Match",
+        "target_table": "Player"
+      },
+      {
+        "database": "european_football_2",
+        "source_table": "Match",
+        "target_table": "Player"
+      },
+      {
+        "database": "european_football_2",
+        "source_table": "Match",
+        "target_table": "Player"
+      },
+      {
+        "database": "european_football_2",
+        "source_table": "Match",
+        "target_table": "Player"
+      },
+      {
+        "database": "european_football_2",
+        "source_table": "Match",
+        "target_table": "Player"
+      },
+      {
+        "database": "european_football_2",
+        "source_table": "Match",
+        "target_table": "Player"
+      },
+      {
+        "database": "european_football_2",
+        "source_table": "Match",
+        "target_table": "Player"
+      },
+      {
+        "database": "european_football_2",
+        "source_table": "Match",
+        "target_table": "Player"
+      },
+      {
+        "database": "european_football_2",
+        "source_table": "Match",
+        "target_table": "Player"
+      },
+      {
+        "database": "european_football_2",
+        "source_table": "Match",
+        "target_table": "Player"
+      },
+      {
+        "database": "european_football_2",
+        "source_table": "Match",
+        "target_table": "Player"
+      },
+      {
+        "database": "european_football_2",
+        "source_table": "Match",
+        "target_table": "Player"
+      },
+      {
+        "database": "european_football_2",
+        "source_table": "Match",
+        "target_table": "Player"
+      },
+      {
+        "database": "european_football_2",
+        "source_table": "Match",
+        "target_table": "Player"
+      },
+      {
+        "database": "european_football_2",
+        "source_table": "Match",
+        "target_table": "Team"
+      },
+      {
+        "database": "european_football_2",
+        "source_table": "Match",
+        "target_table": "Team"
+      },
+      {
+        "database": "thrombosis_prediction",
+        "source_table": "Examination",
+        "target_table": "Patient"
+      },
+      {
+        "database": "thrombosis_prediction",
+        "source_table": "Laboratory",
+        "target_table": "Patient"
+      },
+      {
+        "database": "toxicology",
+        "source_table": "atom",
+        "target_table": "molecule"
+      },
+      {
+        "database": "toxicology",
+        "source_table": "bond",
+        "target_table": "molecule"
+      },
+      {
+        "database": "toxicology",
+        "source_table": "connected",
+        "target_table": "bond"
+      },
+      {
+        "database": "toxicology",
+        "source_table": "connected",
+        "target_table": "atom"
+      },
+      {
+        "database": "toxicology",
+        "source_table": "connected",
+        "target_table": "atom"
+      },
+      {
+        "database": "student_club",
+        "source_table": "Attendance",
+        "target_table": "Member"
+      },
+      {
+        "database": "student_club",
+        "source_table": "Attendance",
+        "target_table": "Event"
+      },
+      {
+        "database": "student_club",
+        "source_table": "Budget",
+        "target_table": "Event"
+      },
+      {
+        "database": "student_club",
+        "source_table": "Expense",
+        "target_table": "Member"
+      },
+      {
+        "database": "student_club",
+        "source_table": "Expense",
+        "target_table": "Budget"
+      },
+      {
+        "database": "student_club",
+        "source_table": "Income",
+        "target_table": "Member"
+      },
+      {
+        "database": "student_club",
+        "source_table": "Member",
+        "target_table": "Zip Code"
+      },
+      {
+        "database": "student_club",
+        "source_table": "Member",
+        "target_table": "Major"
+      },
+      {
+        "database": "superhero",
+        "source_table": "superhero",
+        "target_table": "colour"
+      },
+      {
+        "database": "superhero",
+        "source_table": "superhero",
+        "target_table": "race"
+      },
+      {
+        "database": "superhero",
+        "source_table": "superhero",
+        "target_table": "publisher"
+      },
+      {
+        "database": "superhero",
+        "source_table": "superhero",
+        "target_table": "colour"
+      },
+      {
+        "database": "superhero",
+        "source_table": "superhero",
+        "target_table": "gender"
+      },
+      {
+        "database": "superhero",
+        "source_table": "superhero",
+        "target_table": "colour"
+      },
+      {
+        "database": "superhero",
+        "source_table": "superhero",
+        "target_table": "alignment"
+      },
+      {
+        "database": "superhero",
+        "source_table": "hero attribute",
+        "target_table": "superhero"
+      },
+      {
+        "database": "superhero",
+        "source_table": "hero attribute",
+        "target_table": "attribute"
+      },
+      {
+        "database": "superhero",
+        "source_table": "hero power",
+        "target_table": "superpower"
+      },
+      {
+        "database": "superhero",
+        "source_table": "hero power",
+        "target_table": "superhero"
+      },
+      {
+        "database": "codebase_community",
+        "source_table": "badges",
+        "target_table": "users"
+      },
+      {
+        "database": "codebase_community",
+        "source_table": "comments",
+        "target_table": "users"
+      },
+      {
+        "database": "codebase_community",
+        "source_table": "comments",
+        "target_table": "posts"
+      },
+      {
+        "database": "codebase_community",
+        "source_table": "post History",
+        "target_table": "users"
+      },
+      {
+        "database": "codebase_community",
+        "source_table": "post History",
+        "target_table": "posts"
+      },
+      {
+        "database": "codebase_community",
+        "source_table": "post Links",
+        "target_table": "posts"
+      },
+      {
+        "database": "codebase_community",
+        "source_table": "post Links",
+        "target_table": "posts"
+      },
+      {
+        "database": "codebase_community",
+        "source_table": "posts",
+        "target_table": "users"
+      },
+      {
+        "database": "codebase_community",
+        "source_table": "posts",
+        "target_table": "users"
+      },
+      {
+        "database": "codebase_community",
+        "source_table": "tags",
+        "target_table": "posts"
+      },
+      {
+        "database": "codebase_community",
+        "source_table": "votes",
+        "target_table": "users"
+      },
+      {
+        "database": "codebase_community",
+        "source_table": "votes",
+        "target_table": "posts"
+      }
+    ],
+    "connectivity_stats": {
+      "european_football_1": {
+        "num_tables": 2,
+        "num_relationships": 1,
+        "connectivity_ratio": 0.5,
+        "connected_tables": 2
+      },
+      "sales_in_weather": {
+        "num_tables": 3,
+        "num_relationships": 2,
+        "connectivity_ratio": 0.6666666666666666,
+        "connected_tables": 3
+      },
+      "craftbeer": {
+        "num_tables": 2,
+        "num_relationships": 0,
+        "connectivity_ratio": 0.0,
+        "connected_tables": 0
+      },
+      "soccer_2016": {
+        "num_tables": 21,
+        "num_relationships": 26,
+        "connectivity_ratio": 1.2380952380952381,
+        "connected_tables": 20
+      },
+      "restaurant": {
+        "num_tables": 3,
+        "num_relationships": 3,
+        "connectivity_ratio": 1.0,
+        "connected_tables": 3
+      },
+      "movie": {
+        "num_tables": 3,
+        "num_relationships": 2,
+        "connectivity_ratio": 0.6666666666666666,
+        "connected_tables": 3
+      },
+      "olympics": {
+        "num_tables": 11,
+        "num_relationships": 10,
+        "connectivity_ratio": 0.9090909090909091,
+        "connected_tables": 11
+      },
+      "language_corpus": {
+        "num_tables": 6,
+        "num_relationships": 8,
+        "connectivity_ratio": 1.3333333333333333,
+        "connected_tables": 6
+      },
+      "app_store": {
+        "num_tables": 2,
+        "num_relationships": 1,
+        "connectivity_ratio": 0.5,
+        "connected_tables": 2
+      },
+      "sales": {
+        "num_tables": 4,
+        "num_relationships": 3,
+        "connectivity_ratio": 0.75,
+        "connected_tables": 4
+      },
+      "video_games": {
+        "num_tables": 8,
+        "num_relationships": 7,
+        "connectivity_ratio": 0.875,
+        "connected_tables": 8
+      },
+      "image_and_language": {
+        "num_tables": 6,
+        "num_relationships": 9,
+        "connectivity_ratio": 1.5,
+        "connected_tables": 6
+      },
+      "software_company": {
+        "num_tables": 5,
+        "num_relationships": 0,
+        "connectivity_ratio": 0.0,
+        "connected_tables": 0
+      },
+      "authors": {
+        "num_tables": 5,
+        "num_relationships": 4,
+        "connectivity_ratio": 0.8,
+        "connected_tables": 5
+      },
+      "movies_4": {
+        "num_tables": 17,
+        "num_relationships": 13,
+        "connectivity_ratio": 0.7647058823529411,
+        "connected_tables": 13
+      },
+      "social_media": {
+        "num_tables": 3,
+        "num_relationships": 2,
+        "connectivity_ratio": 0.6666666666666666,
+        "connected_tables": 3
+      },
+      "human_resources": {
+        "num_tables": 3,
+        "num_relationships": 2,
+        "connectivity_ratio": 0.6666666666666666,
+        "connected_tables": 3
+      },
+      "regional_sales": {
+        "num_tables": 6,
+        "num_relationships": 5,
+        "connectivity_ratio": 0.8333333333333334,
+        "connected_tables": 6
+      },
+      "computer_student": {
+        "num_tables": 4,
+        "num_relationships": 4,
+        "connectivity_ratio": 1.0,
+        "connected_tables": 4
+      },
+      "works_cycles": {
+        "num_tables": 65,
+        "num_relationships": 61,
+        "connectivity_ratio": 0.9384615384615385,
+        "connected_tables": 56
+      },
+      "food_inspection_2": {
+        "num_tables": 5,
+        "num_relationships": 6,
+        "connectivity_ratio": 1.2,
+        "connected_tables": 5
+      },
+      "citeseer": {
+        "num_tables": 3,
+        "num_relationships": 1,
+        "connectivity_ratio": 0.3333333333333333,
+        "connected_tables": 2
+      },
+      "bike_share_1": {
+        "num_tables": 4,
+        "num_relationships": 0,
+        "connectivity_ratio": 0.0,
+        "connected_tables": 0
+      },
+      "law_episode": {
+        "num_tables": 6,
+        "num_relationships": 6,
+        "connectivity_ratio": 1.0,
+        "connected_tables": 6
+      },
+      "cs_semester": {
+        "num_tables": 5,
+        "num_relationships": 4,
+        "connectivity_ratio": 0.8,
+        "connected_tables": 5
+      },
+      "legislator": {
+        "num_tables": 5,
+        "num_relationships": 3,
+        "connectivity_ratio": 0.6,
+        "connected_tables": 5
+      },
+      "world": {
+        "num_tables": 3,
+        "num_relationships": 2,
+        "connectivity_ratio": 0.6666666666666666,
+        "connected_tables": 3
+      },
+      "cookbook": {
+        "num_tables": 4,
+        "num_relationships": 4,
+        "connectivity_ratio": 1.0,
+        "connected_tables": 4
+      },
+      "university": {
+        "num_tables": 6,
+        "num_relationships": 5,
+        "connectivity_ratio": 0.8333333333333334,
+        "connected_tables": 6
+      },
+      "books": {
+        "num_tables": 15,
+        "num_relationships": 7,
+        "connectivity_ratio": 0.4666666666666667,
+        "connected_tables": 9
+      },
+      "shipping": {
+        "num_tables": 5,
+        "num_relationships": 4,
+        "connectivity_ratio": 0.8,
+        "connected_tables": 5
+      },
+      "food_inspection": {
+        "num_tables": 3,
+        "num_relationships": 2,
+        "connectivity_ratio": 0.6666666666666666,
+        "connected_tables": 3
+      },
+      "movie_platform": {
+        "num_tables": 5,
+        "num_relationships": 7,
+        "connectivity_ratio": 1.4,
+        "connected_tables": 5
+      },
+      "shakespeare": {
+        "num_tables": 4,
+        "num_relationships": 0,
+        "connectivity_ratio": 0.0,
+        "connected_tables": 0
+      },
+      "book_publishing_company": {
+        "num_tables": 11,
+        "num_relationships": 10,
+        "connectivity_ratio": 0.9090909090909091,
+        "connected_tables": 11
+      },
+      "car_retails": {
+        "num_tables": 8,
+        "num_relationships": 6,
+        "connectivity_ratio": 0.75,
+        "connected_tables": 7
+      },
+      "mental_health_survey": {
+        "num_tables": 3,
+        "num_relationships": 0,
+        "connectivity_ratio": 0.0,
+        "connected_tables": 0
+      },
+      "hockey": {
+        "num_tables": 22,
+        "num_relationships": 42,
+        "connectivity_ratio": 1.9090909090909092,
+        "connected_tables": 19
+      },
+      "music_platform_2": {
+        "num_tables": 4,
+        "num_relationships": 0,
+        "connectivity_ratio": 0.0,
+        "connected_tables": 0
+      },
+      "address": {
+        "num_tables": 9,
+        "num_relationships": 10,
+        "connectivity_ratio": 1.1111111111111112,
+        "connected_tables": 9
+      },
+      "menu": {
+        "num_tables": 4,
+        "num_relationships": 3,
+        "connectivity_ratio": 0.75,
+        "connected_tables": 4
+      },
+      "professional_basketball": {
+        "num_tables": 9,
+        "num_relationships": 14,
+        "connectivity_ratio": 1.5555555555555556,
+        "connected_tables": 9
+      },
+      "cars": {
+        "num_tables": 4,
+        "num_relationships": 4,
+        "connectivity_ratio": 1.0,
+        "connected_tables": 4
+      },
+      "synthea": {
+        "num_tables": 11,
+        "num_relationships": 16,
+        "connectivity_ratio": 1.4545454545454546,
+        "connected_tables": 10
+      },
+      "genes": {
+        "num_tables": 3,
+        "num_relationships": 3,
+        "connectivity_ratio": 1.0,
+        "connected_tables": 3
+      },
+      "retails": {
+        "num_tables": 8,
+        "num_relationships": 9,
+        "connectivity_ratio": 1.125,
+        "connected_tables": 8
+      },
+      "talkingdata": {
+        "num_tables": 12,
+        "num_relationships": 7,
+        "connectivity_ratio": 0.5833333333333334,
+        "connected_tables": 9
+      },
+      "beer_factory": {
+        "num_tables": 7,
+        "num_relationships": 10,
+        "connectivity_ratio": 1.4285714285714286,
+        "connected_tables": 7
+      },
+      "chicago_crime": {
+        "num_tables": 7,
+        "num_relationships": 6,
+        "connectivity_ratio": 0.8571428571428571,
+        "connected_tables": 7
+      },
+      "mondial_geo": {
+        "num_tables": 34,
+        "num_relationships": 0,
+        "connectivity_ratio": 0.0,
+        "connected_tables": 0
+      },
+      "student_loan": {
+        "num_tables": 10,
+        "num_relationships": 9,
+        "connectivity_ratio": 0.9,
+        "connected_tables": 10
+      },
+      "codebase_comments": {
+        "num_tables": 4,
+        "num_relationships": 0,
+        "connectivity_ratio": 0.0,
+        "connected_tables": 0
+      },
+      "retail_world": {
+        "num_tables": 8,
+        "num_relationships": 7,
+        "connectivity_ratio": 0.875,
+        "connected_tables": 8
+      },
+      "music_tracker": {
+        "num_tables": 2,
+        "num_relationships": 0,
+        "connectivity_ratio": 0.0,
+        "connected_tables": 0
+      },
+      "disney": {
+        "num_tables": 5,
+        "num_relationships": 4,
+        "connectivity_ratio": 0.8,
+        "connected_tables": 4
+      },
+      "college_completion": {
+        "num_tables": 4,
+        "num_relationships": 4,
+        "connectivity_ratio": 1.0,
+        "connected_tables": 4
+      },
+      "ice_hockey_draft": {
+        "num_tables": 4,
+        "num_relationships": 3,
+        "connectivity_ratio": 0.75,
+        "connected_tables": 4
+      },
+      "world_development_indicators": {
+        "num_tables": 6,
+        "num_relationships": 6,
+        "connectivity_ratio": 1.0,
+        "connected_tables": 6
+      },
+      "airline": {
+        "num_tables": 3,
+        "num_relationships": 3,
+        "connectivity_ratio": 1.0,
+        "connected_tables": 3
+      },
+      "retail_complains": {
+        "num_tables": 6,
+        "num_relationships": 6,
+        "connectivity_ratio": 1.0,
+        "connected_tables": 6
+      },
+      "trains": {
+        "num_tables": 2,
+        "num_relationships": 1,
+        "connectivity_ratio": 0.5,
+        "connected_tables": 2
+      },
+      "public_review_platform": {
+        "num_tables": 15,
+        "num_relationships": 0,
+        "connectivity_ratio": 0.0,
+        "connected_tables": 0
+      },
+      "donor": {
+        "num_tables": 4,
+        "num_relationships": 2,
+        "connectivity_ratio": 0.5,
+        "connected_tables": 3
+      },
+      "coinmarketcap": {
+        "num_tables": 2,
+        "num_relationships": 0,
+        "connectivity_ratio": 0.0,
+        "connected_tables": 0
+      },
+      "simpson_episodes": {
+        "num_tables": 7,
+        "num_relationships": 7,
+        "connectivity_ratio": 1.0,
+        "connected_tables": 7
+      },
+      "movie_3": {
+        "num_tables": 16,
+        "num_relationships": 0,
+        "connectivity_ratio": 0.0,
+        "connected_tables": 0
+      },
+      "shooting": {
+        "num_tables": 3,
+        "num_relationships": 2,
+        "connectivity_ratio": 0.6666666666666666,
+        "connected_tables": 3
+      },
+      "superstore": {
+        "num_tables": 6,
+        "num_relationships": 16,
+        "connectivity_ratio": 2.6666666666666665,
+        "connected_tables": 6
+      },
+      "movielens": {
+        "num_tables": 7,
+        "num_relationships": 0,
+        "connectivity_ratio": 0.0,
+        "connected_tables": 0
+      },
+      "debit_card_specializing": {
+        "num_tables": 5,
+        "num_relationships": 1,
+        "connectivity_ratio": 0.2,
+        "connected_tables": 2
+      },
+      "financial": {
+        "num_tables": 8,
+        "num_relationships": 8,
+        "connectivity_ratio": 1.0,
+        "connected_tables": 8
+      },
+      "formula_1": {
+        "num_tables": 13,
+        "num_relationships": 19,
+        "connectivity_ratio": 1.4615384615384615,
+        "connected_tables": 13
+      },
+      "california_schools": {
+        "num_tables": 3,
+        "num_relationships": 2,
+        "connectivity_ratio": 0.6666666666666666,
+        "connected_tables": 3
+      },
+      "card_games": {
+        "num_tables": 6,
+        "num_relationships": 4,
+        "connectivity_ratio": 0.6666666666666666,
+        "connected_tables": 6
+      },
+      "european_football_2": {
+        "num_tables": 7,
+        "num_relationships": 29,
+        "connectivity_ratio": 4.142857142857143,
+        "connected_tables": 7
+      },
+      "thrombosis_prediction": {
+        "num_tables": 3,
+        "num_relationships": 2,
+        "connectivity_ratio": 0.6666666666666666,
+        "connected_tables": 3
+      },
+      "toxicology": {
+        "num_tables": 4,
+        "num_relationships": 5,
+        "connectivity_ratio": 1.25,
+        "connected_tables": 4
+      },
+      "student_club": {
+        "num_tables": 8,
+        "num_relationships": 8,
+        "connectivity_ratio": 1.0,
+        "connected_tables": 8
+      },
+      "superhero": {
+        "num_tables": 10,
+        "num_relationships": 11,
+        "connectivity_ratio": 1.1,
+        "connected_tables": 10
+      },
+      "codebase_community": {
+        "num_tables": 8,
+        "num_relationships": 13,
+        "connectivity_ratio": 1.625,
+        "connected_tables": 8
+      }
+    }
+  },
+  "knowledge_graph": {
+    "num_nodes": 5014,
+    "num_edges": 5460,
+    "density": 0.0002172254014313483,
+    "num_databases": 80,
+    "num_tables": 597,
+    "num_columns": 4337
+  },
+  "gpt4o_insights": "### 1. Schema Design Quality & Patterns\n\n**Normalization Levels & Design Consistency:**\n- **Normalization:** The dataset appears to have varying levels of normalization. Databases with a high number of tables and foreign keys, such as \"soccer_2016,\" suggest a higher normalization level (3NF or higher), whereas databases with fewer tables and foreign keys might be closer to 1NF or 2NF.\n- **Design Consistency:** The diversity in domains implies inconsistent design patterns across databases. Some domains like \"soccer_2016\" have complex schemas with many tables and relationships, while others like \"craftbeer\" are simpler.\n- **Patterns & Anti-patterns:** Common patterns include star schemas in sales-related databases and snowflake schemas in more complex domains like sports. Anti-patterns may include over-normalization leading to excessive joins or under-normalization causing data redundancy.\n\n**Complexity Distribution:**\n- **Complexity:** The wide range of tables (2 to 65) and columns (6 to 455) per database indicates a broad complexity spectrum. Text-to-SQL systems must handle both simple and complex schemas, requiring flexible parsing and query generation capabilities.\n\n### 2. Text-to-SQL System Challenges\n\n**Challenges in NL-to-SQL Conversion:**\n- **Schema Complexity:** High normalization and complex relationships increase the difficulty of generating accurate SQL queries from natural language.\n- **Ambiguity:** Ambiguities arise from similar column names across different tables or databases, requiring context-aware disambiguation.\n- **Relationship Complexity:** Databases with high connectivity and foreign keys, like \"soccer_2016,\" present challenges in understanding and correctly joining tables.\n\n**Database Characteristics:**\n- **Most Challenging:** Databases with many-to-many relationships, composite keys, and high table counts.\n- **Least Challenging:** Flat schemas with fewer tables and straightforward relationships.\n\n**Key Ambiguity Sources:**\n- **Synonyms and Homonyms:** Different terms referring to the same schema element or the same term referring to different elements.\n- **Implicit Relationships:** Natural language queries may imply relationships not explicitly defined in the schema.\n\n### 3. Knowledge Graph Construction Strategy\n\n**Optimal Graph Structure:**\n- **Node Types:** Tables, columns, primary keys, foreign keys, and domains.\n- **Edge Types:** Relationships between tables (foreign keys), column dependencies, and domain associations.\n- **Metadata:** Include data types, constraints, and sample data for context.\n\n**Handling Schema Heterogeneity:**\n- **Multi-Domain Strategy:** Use domain-specific subgraphs with shared nodes for common elements (e.g., date, location).\n- **Scalability Concerns:** Implement a distributed graph database like Neo4j or ArangoDB to handle large datasets efficiently.\n\n### 4. Graph Traversal Optimization\n\n**Algorithms for Query Patterns:**\n- **Breadth-First Search (BFS):** For exploring relationships and dependencies.\n- **Depth-First Search (DFS):** For deep schema exploration and complex joins.\n\n**Indexing & Caching:**\n- **Indexing:** Use hash-based indexing for fast node and edge retrieval.\n- **Caching:** Implement LRU caching for frequently accessed schema elements.\n\n**Handling Composite Keys:**\n- **Composite Key Representation:** Treat composite keys as unique nodes with edges to constituent columns.\n\n**Performance Optimization:**\n- **Parallel Processing:** Leverage parallel graph traversal for large schemas.\n- **Batch Processing:** Use batch updates for schema changes to reduce overhead.\n\n### 5. Domain-Specific Considerations\n\n**Traversal Needs by Domain:**\n- **Financial:** Requires precision in handling numeric data and complex joins.\n- **Sports:** High connectivity and complex relationships necessitate efficient traversal.\n- **Weather:** Time-series data handling and temporal queries are critical.\n\n**Domain-Specific Patterns:**\n- **Special Handling:** Implement domain-specific optimizations like time-series indexing for weather data or hierarchical traversal for sports leagues.\n\n**Cross-Domain Generalization:**\n- **Generalization Strategy:** Develop a core schema understanding module with domain-specific plugins for tailored query generation.\n\n### 6. Implementation Recommendations\n\n**Python Libraries & Tools:**\n- **Libraries:** Use SQLAlchemy for ORM and query generation, NetworkX for graph operations, and SpaCy for NLP tasks.\n- **Tools:** Leverage Apache Arrow for efficient in-memory data processing.\n\n**Memory Management:**\n- **Strategies:** Use memory-mapped files for large datasets and optimize data structures for minimal memory footprint.\n\n**API Design Patterns:**\n- **Schema Query Interfaces:** Implement RESTful APIs with endpoints for schema discovery, query generation, and execution.\n\n**Testing & Validation:**\n- **Approaches:** Use synthetic and real-world queries for testing. Implement unit tests for schema parsing and integration tests for end-to-end query execution.\n\nThese insights and recommendations aim to enhance the design and implementation of a robust, scalable, and efficient text-to-SQL system capable of handling the diverse and complex schemas in the BIRD dataset.",
+  "traversal_analysis": "To optimize graph traversal in the BIRD dataset, we need to consider the specific characteristics of the dataset, such as the number of nodes, edges, and the complexity distribution across different databases. Here's a detailed plan for optimizing graph traversal using NetworkX and other strategies:\n\n### 1. Optimal Algorithms by Query Type\n\n#### Simple Single-Table Queries\n- **Algorithm**: Direct lookup using dictionary-based indexing.\n- **NetworkX Usage**: Not required for single-table queries; use direct access methods.\n\n#### Multi-Table JOIN Operations\n- **Algorithm**: Breadth-First Search (BFS) to explore relationships between tables.\n- **NetworkX Usage**: Use `networkx.bfs_edges` to traverse edges representing foreign key relationships.\n\n#### Complex Nested Queries with Subqueries\n- **Algorithm**: Depth-First Search (DFS) to handle nested structures.\n- **NetworkX Usage**: Use `networkx.dfs_edges` for traversing nested subqueries.\n\n#### Aggregation Queries Across Multiple Tables\n- **Algorithm**: Use a combination of BFS for table traversal and aggregation functions.\n- **NetworkX Usage**: Traverse using BFS and apply aggregation functions on the nodes.\n\n### 2. Implementation Strategy\n\n#### Specific NetworkX Algorithms to Use\n- **BFS and DFS**: For traversing relationships between tables.\n- **Shortest Path Algorithms**: Use `networkx.shortest_path` for finding optimal join paths.\n\n#### Custom Traversal Patterns Needed\n- **Pattern**: Use BFS for breadth exploration and DFS for depth exploration, depending on query complexity.\n\n#### Indexing Strategies for Fast Lookup\n- **Strategy**: Use hash maps for indexing tables and columns to speed up lookups.\n- **Implementation**: Create dictionaries mapping table names to node IDs and column names to attributes.\n\n#### Caching Mechanisms for Frequent Patterns\n- **Strategy**: Implement LRU (Least Recently Used) caching for frequent query patterns.\n- **Implementation**: Use Python's `functools.lru_cache` for caching results of expensive operations.\n\n### 3. Performance Optimization\n\n#### Memory-Efficient Graph Representations\n- **Strategy**: Use sparse matrix representations for large graphs.\n- **Implementation**: Use `scipy.sparse` for memory-efficient adjacency matrices.\n\n#### Query Optimization Techniques\n- **Strategy**: Precompute and cache common subquery results.\n- **Implementation**: Use materialized views or precomputed tables for frequent subqueries.\n\n#### Batch Processing Strategies\n- **Strategy**: Process multiple queries in batches to reduce overhead.\n- **Implementation**: Use batch processing frameworks like Dask for parallel execution.\n\n#### Parallel Traversal Opportunities\n- **Strategy**: Use multi-threading or multi-processing for parallel traversal.\n- **Implementation**: Use Python's `concurrent.futures` for parallel execution of independent queries.\n\n### 4. Code Examples\n\n#### BFS for Multi-Table JOIN Operations\n```python\nimport networkx as nx\n\n# Create a graph\nG = nx.Graph()\n\n# Add nodes and edges based on your schema\n# Example: G.add_edge('table1', 'table2', relationship='foreign_key')\n\n# Perform BFS\ndef bfs_traversal(start_node):\n    return list(nx.bfs_edges(G, start_node))\n\n# Example usage\nbfs_result = bfs_traversal('table1')\nprint(bfs_result)\n```\n\n#### DFS for Complex Nested Queries\n```python\ndef dfs_traversal(start_node):\n    return list(nx.dfs_edges(G, start_node))\n\n# Example usage\ndfs_result = dfs_traversal('table1')\nprint(dfs_result)\n```\n\n#### Performance Monitoring\n```python\nimport time\n\ndef monitor_performance(func):\n    def wrapper(*args, **kwargs):\n        start_time = time.time()\n        result = func(*args, **kwargs)\n        end_time = time.time()\n        print(f\"Execution time: {end_time - start_time} seconds\")\n        return result\n    return wrapper\n\n@monitor_performance\ndef execute_query():\n    # Your query execution logic\n    pass\n\n# Example usage\nexecute_query()\n```\n\nBy implementing these strategies, you can optimize graph traversal in the BIRD dataset for various query types, ensuring efficient and scalable performance.",
+  "complexity_analysis": "### Complexity Assessment\n\n#### 1. Complexity Classification\n\n**Categorization by Difficulty Level**:\n- **Low Complexity**: Databases with low structural complexity, low relationship density, and low column type diversity. Examples include `craftbeer`, `software_company`, `bike_share_1`, `mental_health_survey`, `music_platform_2`, `movielens`.\n- **Medium Complexity**: Databases with moderate structural complexity and relationship density, and moderate column type diversity. Examples include `sales_in_weather`, `movie`, `restaurant`, `regional_sales`, `video_games`.\n- **High Complexity**: Databases with high structural complexity, high relationship density, and high column type diversity. Examples include `soccer_2016`, `works_cycles`, `european_football_2`, `hockey`.\n\n**Complexity Drivers and Impact**:\n- **Structural Complexity**: High values indicate complex schemas with many tables and relationships, challenging AI systems to navigate.\n- **Relationship Density**: High density can lead to complex joins and nested queries, increasing difficulty.\n- **Column Type Diversity**: More diverse column types require more sophisticated type handling and inference.\n\n**Ranking Challenges**:\n- **Easiest**: `craftbeer`, `software_company`, `bike_share_1`\n- **Moderate**: `sales_in_weather`, `movie`, `restaurant`\n- **Hardest**: `soccer_2016`, `works_cycles`, `european_football_2`\n\n#### 2. Schema Quality Assessment\n\n**Normalization Levels**:\n- Databases with high foreign key ratios and low average columns per table are likely well-normalized (e.g., `soccer_2016`, `european_football_2`).\n- Databases with low foreign key ratios and high average columns per table may have denormalization or data redundancy issues (e.g., `legislator`, `card_games`).\n\n**Potential Data Modeling Issues**:\n- High structural complexity with low foreign key ratios suggests potential for missing relationships or poor schema design (e.g., `student_loan`).\n\n**Consistency Across Domains**:\n- Domains like sports (`soccer_2016`, `hockey`) and entertainment (`movie`, `movies_4`) show varied complexity, indicating inconsistent schema design practices.\n\n#### 3. Text-to-SQL Difficulty Prediction\n\n**Hardest Schemas for AI Systems**:\n- `works_cycles`, `soccer_2016`, `european_football_2` due to high structural complexity and relationship density.\n\n**Patterns Causing Difficulty**:\n- Complex joins and nested queries from high relationship density.\n- Diverse column types requiring complex type inference.\n\n**Prioritization of Development Efforts**:\n- Focus on improving join handling and type inference for high-complexity schemas.\n- Develop specialized models for domains with consistent complexity patterns.\n\n#### 4. Mitigation Strategies\n\n**Preprocessing Approaches**:\n- **Schema Simplification**: Normalize schemas where possible, reduce redundancy.\n- **Schema Mapping**: Create simplified views or mappings for complex schemas.\n\n**Query Simplification Techniques**:\n- **Decompose Complex Queries**: Break down complex queries into simpler sub-queries.\n- **Use of Views**: Predefine complex joins in views to simplify query generation.\n\n**Schema-aware Prompt Engineering**:\n- **Contextual Prompts**: Provide AI systems with schema context, including key relationships and column types.\n- **Example-driven Learning**: Use examples from similar complexity schemas to train models.\n\n**Recommendations for Handling Complexity Levels**:\n- **Low Complexity**: Focus on basic query generation and type handling.\n- **Medium Complexity**: Enhance join handling and improve type inference.\n- **High Complexity**: Invest in advanced query decomposition, schema mapping, and contextual understanding.\n\nBy addressing these areas, text-to-SQL systems can be better equipped to handle the varying complexities of different database schemas effectively."
+}
