@@ -1,0 +1,51 @@
+Test 1: Most Basic Query
+sqlSELECT 
+    dwh_business_date,
+    client_id,
+    SUBSTR(query_text, 1, 100) as query_sample
+FROM gfolydal_managed.jdbc_centralized_audit_log
+WHERE dwh_business_date = 20250801
+LIMIT 20
+Test 2: Add Simple Text Filter
+sqlSELECT 
+    dwh_business_date,
+    client_id,
+    SUBSTR(query_text, 1, 100) as query_sample
+FROM gfolydal_managed.jdbc_centralized_audit_log
+WHERE 
+    dwh_business_date = 20250801
+    AND query_text LIKE '%SELECT%'
+LIMIT 20
+Test 3: Add Length Filter
+sqlSELECT 
+    dwh_business_date,
+    client_id,
+    SUBSTR(query_text, 1, 100) as query_sample
+FROM gfolydal_managed.jdbc_centralized_audit_log
+WHERE 
+    dwh_business_date = 20250801
+    AND LENGTH(query_text) > 50
+    AND LENGTH(query_text) < 1000
+LIMIT 20
+Test 4: Simple TRADE Filter (No UPPER)
+sqlSELECT 
+    dwh_business_date,
+    client_id,
+    SUBSTR(query_text, 1, 100) as query_sample
+FROM gfolydal_managed.jdbc_centralized_audit_log
+WHERE 
+    dwh_business_date = 20250801
+    AND query_text LIKE '%TRADE%'
+LIMIT 20
+Test 5: Multiple Days Without Complex Filters
+sqlSELECT 
+    dwh_business_date,
+    client_id,
+    SUBSTR(query_text, 1, 100) as query_sample
+FROM gfolydal_managed.jdbc_centralized_audit_log
+WHERE 
+    dwh_business_date >= 20250801
+    AND dwh_business_date <= 20250806
+    AND query_text LIKE '%SELECT%'
+LIMIT 50
+Code Updates B
