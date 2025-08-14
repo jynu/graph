@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text-to-SQL with Graph Traversal - Workflow</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .title {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 36px;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #6c757d;
+            margin-bottom: 40px;
+            font-size: 18px;
+            line-height: 1.4;
+        }
+        
+        .agents-overview {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .agent-overview {
+            background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+            border: 2px solid #dee2e6;
+            border-radius: 15px;
+            padding: 15px;
+            text-align: center;
+            min-width: 180px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .agent-overview:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        
+        .agent-title {
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .agent-description {
+            font-size: 11px;
+            color: #6c757d;
+            background: #f8f9fa;
+            padding: 3px 6px;
+            border-radius: 4px;
+            margin-top: 5px;
+        }
+        
+        .flowchart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+        }
+        
+        .phase {
+            background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+            border: 3px solid #007bff;
+            border-radius: 20px;
+            padding: 25px;
+            min-width: 400px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .phase:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .phase-number {
+            position: absolute;
+            top: -20px;
+            left: 25px;
+            background: #007bff;
+            color: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        .phase-title {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 20px;
+            margin-bottom: 10px;
+            margin-top: 15px;
+        }
+        
+        .phase-subtitle {
+            font-size: 13px;
+            color: #6c757d;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        .input-output {
+            display: flex;
+            gap: 20px;
+            margin: 15px 0;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .io-box {
+            background: rgba(255,255,255,0.9);
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            padding: 12px;
+            flex: 1;
+            min-width: 180px;
+            max-width: 250px;
+        }
+        
+        .io-title {
+            font-weight: bold;
+            font-size: 12px;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        
+        .io-content {
+            font-family: 'Courier New', monospace;
+            font-size: 11px;
+            background: #f8f9fa;
+            padding: 8px;
+            border-radius: 5px;
+            color: #495057;
+            white-space: pre-wrap;
+            line-height: 1.3;
+        }
+        
+        /* Agent-specific colors */
+        .orchestrator { 
+            background: linear-gradient(145deg, #fff3e0, #ffe0b2); 
+            border-color: #ff9800; 
+        }
+        .orchestrator .phase-number { background: #ff9800; }
+        
+        .schema { 
+            background: linear-gradient(145deg, #e3f2fd, #bbdefb); 
+            border-color: #2196f3; 
+        }
+        .schema .phase-number { background: #2196f3; }
+        
+        .ambiguity { 
+            background: linear-gradient(145deg, #fce4ec, #f8bbd9); 
+            border-color: #e91e63; 
+        }
+        .ambiguity .phase-number { background: #e91e63; }
+        
+        .decomposer { 
+            background: linear-gradient(145deg, #f3e5f5, #e1bee7); 
+            border-color: #9c27b0; 
+        }
+        .decomposer .phase-number { background: #9c27b0; }
+        
+        .generator { 
+            background: linear-gradient(145deg, #e8f5e8, #c8e6c9); 
+            border-color: #4caf50; 
+        }
+        .generator .phase-number { background: #4caf50; }
+        
+        .validator { 
+            background: linear-gradient(145deg, #ffebee, #ffcdd2); 
+            border-color: #f44336; 
+        }
+        .validator .phase-number { background: #f44336; }
+        
+        .decision { 
+            background: linear-gradient(145deg, #fff9c4, #fff59d); 
+            border-color: #ffc107;
+            transform: rotate(45deg);
+            min-width: 300px;
+            min-height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .decision .content {
+            transform: rotate(-45deg);
+            text-align: center;
+        }
+        .decision .phase-number {
+            transform: rotate(-45deg);
+            top: -15px;
+            left: 20px;
+        }
+        
+        .parallel-section {
+            display: flex;
+            gap: 25px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 25px 0;
+        }
+        
+        .agent-detail {
+            background: rgba(255,255,255,0.95);
+            border: 2px solid #dee2e6;
+            border-radius: 15px;
+            padding: 20px;
+            min-width: 280px;
+            max-width: 350px;
+            flex: 1;
+        }
+        
+        .agent-detail-title {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 16px;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        
+        .method-list {
+            margin: 10px 0;
+        }
+        
+        .method {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 8px;
+            margin: 6px 0;
+            font-size: 11px;
+        }
+        
+        .method-name {
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            color: #d63384;
+            margin-bottom: 3px;
+        }
+        
+        .method-desc {
+            color: #6c757d;
+            line-height: 1.3;
+        }
+        
+        .arrow {
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 25px solid #6c757d;
+            margin: 15px auto;
+        }
+        
+        .sample-data {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .sample-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .sample-content {
+            font-family: 'Courier New', monospace;
+            font-size: 10px;
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+        
+        .legend {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            background: rgba(255,255,255,0.8);
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        
+        .comparison-section {
+            background: rgba(255,255,255,0.9);
+            border: 2px solid #6c757d;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 30px 0;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .comparison-title {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .comparison-item {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            padding: 15px;
+        }
+        
+        .comparison-item-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .old-system { border-left: 4px solid #dc3545; }
+        .new-system { border-left: 4px solid #28a745; }
+        
+        .improvement-list {
+            font-size: 12px;
+            line-height: 1.4;
+        }
+        
+        .improvement-list li {
+            margin: 5px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .parallel-section {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .phase {
+                min-width: 350px;
+            }
+            
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .agents-overview {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        .clickable {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .highlighted {
+            border-color: #007bff !important;
+            border-width: 3px !important;
+            box-shadow: 0 0 15px rgba(0,123,255,0.3) !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Text-to-SQL with Graph Traversal WorkFlow</h1>
+        <div class="subtitle">Improved workflow combining advanced graph traversal retrieval with intelligent multi-agent coordination for superior SQL generation and multi-turn clarification</div>
+        
+        <!-- Agents Overview -->
+        <div class="agents-overview">
+            <div class="agent-overview orchestrator clickable" data-agent="orchestrator">
+                <div class="agent-title">🎼 Orchestrator Agent</div>
+                <div class="agent-description">Central coordinator & decision maker</div>
+            </div>
+            <div class="agent-overview schema clickable" data-agent="schema">
+                <div class="agent-title">🕸️ Schema Agent</div>
+                <div class="agent-description">Graph traversal & table discovery</div>
+            </div>
+            <div class="agent-overview ambiguity clickable" data-agent="ambiguity">
+                <div class="agent-title">❓ Ambiguity Resolver</div>
+                <div class="agent-description">Smart clarification & disambiguation</div>
+            </div>
+            <div class="agent-overview decomposer clickable" data-agent="decomposer">
+                <div class="agent-title">🔍 Query Decomposer</div>
+                <div class="agent-description">Complex query breakdown</div>
+            </div>
+            <div class="agent-overview generator clickable" data-agent="generator">
+                <div class="agent-title">⚡ SQL Generator</div>
+                <div class="agent-description">Multi-step SQL construction</div>
+            </div>
+            <div class="agent-overview validator clickable" data-agent="validator">
+                <div class="agent-title">✅ Validator Agent</div>
+                <div class="agent-description">Quality assessment & optimization</div>
+            </div>
+        </div>
+        
+        <div class="flowchart">
+            <!-- Phase 1: Initial Processing -->
+            <div class="phase orchestrator" data-agent="orchestrator">
+                <div class="phase-number">1</div>
+                <div class="phase-title">🚀 Initial Request Processing</div>
+                <div class="phase-subtitle">Orchestrator Agent coordinates workflow initialization</div>
+                
+                <div class="input-output">
+                    <div class="io-box">
+                        <div class="io-title">📥 Input</div>
+                        <div class="io-content">{
+  "query": "Show me all quotes from yesterday",
+  "user_id": "user123",
+  "request_id": "req_001",
+  "clarification_response": null
+}</div>
+                    </div>
+                    <div class="io-box">
+                        <div class="io-title">🔄 Processing</div>
+                        <div class="io-content">• State management check
+• Task creation/resume
+• Context aggregation
+• Agent coordination</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="arrow"></div>
+            
+            <!-- Phase 2: Schema Discovery -->
+            <div class="phase schema" data-agent="schema">
+                <div class="phase-number">2</div>
+                <div class="phase-title">🕸️ Advanced Schema Discovery</div>
+                <div class="phase-subtitle">Graph traversal retrieval with semantic analysis</div>
+                
+                <div class="input-output">
+                    <div class="io-box">
+                        <div class="io-title">🔍 Graph Analysis</div>
+                        <div class="io-content">• Query embedding generation
+• Cosine similarity computation
+• Graph relationship traversal
+• Multi-hop reasoning
+• Centrality analysis</div>
+                    </div>
+                    <div class="io-box">
+                        <div class="io-title">📊 Output</div>
+                        <div class="io-content">• Ranked table list
+• Similarity scores (0.847, 0.623, ...)
+• Confidence levels
+• Relationship mappings
+• Semantic context</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Schema Agent Details -->
+            <div class="parallel-section">
+                <div class="agent-detail">
+                    <div class="agent-detail-title">🧠 AdvancedGraphTraversalRetriever</div>
+                    <div class="method-list">
+                        <div class="method">
+                            <div class="method-name">get_tables_with_details()</div>
+                            <div class="method-desc">Main entry point for graph-based table discovery</div>
+                        </div>
+                        <div class="method">
+                            <div class="method-name">_embedding_attention_retrieval()</div>
+                            <div class="method-desc">Semantic similarity with attention mechanism</div>
+                        </div>
+                        <div class="method">
+                            <div class="method-name">_multi_hop_embedding_reasoning()</div>
+                            <div class="method-desc">Multi-hop graph traversal with relationship analysis</div>
+                        </div>
+                        <div class="method">
+                            <div class="method-name">_embedding_column_matching()</div>
+                            <div class="method-desc">Column-level semantic matching</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="agent-detail">
+                    <div class="agent-detail-title">📈 Enhanced Features</div>
+                    <div class="method-list">
+                        <div class="method">
+                            <div class="method-name">Similarity Scoring</div>
+                            <div class="method-desc">Confidence levels: High (>0.8), Medium (0.5-0.8), Low (<0.5)</div>
+                        </div>
+                        <div class="method">
+                            <div class="method-name">Relationship Analysis</div>
+                            <div class="method-desc">Foreign keys, primary keys, semantic relationships</div>
+                        </div>
+                        <div class="method">
+                            <div class="method-name">Adaptive Thresholds</div>
+                            <div class="method-desc">Dynamic threshold adjustment based on clarification rounds</div>
+                        </div>
+                        <div class="method">
+                            <div class="method-name">Caching System</div>
+                            <div class="method-desc">Query embedding cache for performance optimization</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sample-data">
+                <div class="sample-title">📋 Sample Schema Discovery Output</div>
+                <div class="sample-content">{
+  "tables": ["market_quotes", "price_quotes", "quote_history"],
+  "table_details": {
+    "market_quotes": {
+      "similarity_score": 0.847,
+      "confidence": "High",
+      "rank": 1,
+      "relationships": [{"to_table": "daily_market_data", "type": "foreign_key"}]
+    },
+    "price_quotes": {
+      "similarity_score": 0.623,
+      "confidence": "Medium", 
+      "rank": 2
+    }
+  },
+  "status": "Found 3 tables. Similarity range: 0.542-0.847"
+}</div>
+            </div>
+            
+            <div class="arrow"></div>
+            
+            <!-- Decision Point -->
+            <div class="decision">
+                <div class="phase-number">❓</div>
+                <div class="content">
+                    <div class="phase-title">Ambiguity Detection</div>
+                    <div style="font-size: 12px; margin-top: 8px;">
+                        Score difference?<br>
+                        Multiple high-confidence tables?<br>
+                        Complex relationships?
+                    </div>
+                </div>
+            </div>
+            
+            <div class="arrow"></div>
+            
+            <!-- Phase 3: Ambiguity Resolution -->
+            <div class="phase ambiguity" data-agent="ambiguity">
+                <div class="phase-number">3</div>
+                <div class="phase-title">❓ Smart Ambiguity Resolution</div>
+                <div class="phase-subtitle">Context-aware clarification with graph insights</div>
+                
+                <div class="input-output">
+                    <div class="io-box">
+                        <div class="io-title">🧮 Analysis</div>
+                        <div class="io-content">• Score variance analysis
+• Relationship complexity
+• Previous clarification context
+• Confidence thresholds
+• Decision certainty metrics</div>
+                    </div>
+                    <div class="io-box">
+                        <div class="io-title">💬 Smart Questions</div>
+                        <div class="io-content">"I found several quote tables:
+1. Real-time market quotes (85% confidence)
+   - Stock symbols, timestamps
+2. Historical price quotes (62% confidence)
+   - Item codes, prices
+Which type do you need?"</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="arrow"></div>
+            
+            <!-- Phase 4: Query Decomposition -->
+            <div class="phase decomposer" data-agent="decomposer">
+                <div class="phase-number">4</div>
+                <div class="phase-title">🔍 Query Decomposition</div>
+                <div class="phase-subtitle">Complex query breakdown with execution planning</div>
+                
+                <div class="input-output">
+                    <div class="io-box">
+                        <div class="io-title">📝 Analysis</div>
+                        <div class="io-content">• Query complexity assessment
+• Sub-query identification
+• Dependency mapping
+• Execution plan generation</div>
+                    </div>
+                    <div class="io-box">
+                        <div class="io-title">🎯 Planning</div>
+                        <div class="io-content">• Multi-step breakdown
+• Table join strategies
+• Filter optimization
+• Aggregation planning</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="arrow"></div>
+            
+            <!-- Phase 5: SQL Generation -->
+            <div class="phase generator" data-agent="generator">
+                <div class="phase-number">5</div>
+                <div class="phase-title">⚡ Multi-Step SQL Generation</div>
+                <div class="phase-subtitle">Enhanced SQL construction with graph context</div>
+                
+                <div class="input-output">
+                    <div class="io-box">
+                        <div class="io-title">🛠️ Generation</div>
+                        <div class="io-content">• Template-based construction
+• Relationship-aware joins
+• Optimized column selection
+• Dialect-specific adaptation</div>
+                    </div>
+                    <div class="io-box">
+                        <div class="io-title">📤 Output</div>
+                        <div class="io-content">SELECT quote_id, symbol, price, quote_date 
+FROM market_quotes 
+WHERE DATE(quote_date) = 
+  DATE(CURRENT_TIMESTAMP - INTERVAL 1 DAY) 
+ORDER BY quote_date DESC</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="arrow"></div>
+            
+            <!-- Phase 6: Validation & Optimization -->
+            <div class="phase validator" data-agent="validator">
+                <div class="phase-number">6</div>
+                <div class="phase-title">✅ Validation & Optimization</div>
+                <div class="phase-subtitle">Quality assessment with self-correction</div>
+                
+                <div class="input-output">
+                    <div class="io-box">
+                        <div class="io-title">🔍 Validation</div>
+                        <div class="io-content">• Syntax verification
+• Semantic correctness
+• Performance analysis
+• Execution plan review</div>
+                    </div>
+                    <div class="io-box">
+                        <div class="io-title">🎯 Final Result</div>
+                        <div class="io-content">{
+  "status": "success",
+  "sql": "SELECT ... FROM market_quotes...",
+  "confidence_score": 0.95,
+  "reasoning": "High-confidence table match...",
+  "optimizations_applied": ["index_usage", "partition_pruning"]
+}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Comparison Section -->
+        <div class="comparison-section">
+            <div class="comparison-title">🔄 Original vs Enhanced Workflow Comparison</div>
+            <div class="comparison-grid">
+                <div class="comparison-item old-system">
+                    <div class="comparison-item-title">❌ Original System Limitations</div>
+                    <ul class="improvement-list">
+                        <li><strong>Basic Keyword Matching:</strong> Simple relevance scores (0.8, 0.75)</li>
+                        <li><strong>No Relationship Awareness:</strong> Tables analyzed in isolation</li>
+                        <li><strong>Generic Clarifications:</strong> "What type of quotes?" - not helpful</li>
+                        <li><strong>No Context Preservation:</strong> Fresh analysis each round</li>
+                        <li><strong>Fixed Thresholds:</strong> Hard-coded decision boundaries</li>
+                        <li><strong>Limited SQL Quality:</strong> Basic template generation</li>
+                    </ul>
+                </div>
+                
+                <div class="comparison-item new-system">
+                    <div class="comparison-item-title">✅ Enhanced System Benefits</div>
+                    <ul class="improvement-list">
+                        <li><strong>Semantic Understanding:</strong> Embedding-based similarity (0.847 vs 0.623)</li>
+                        <li><strong>Graph Relationships:</strong> Foreign key discovery and traversal</li>
+                        <li><strong>Intelligent Questions:</strong> Context-rich clarifications with confidence</li>
+                        <li><strong>Context Continuity:</strong> Preserved analysis across rounds</li>
+                        <li><strong>Adaptive Intelligence:</strong> Dynamic thresholds and learning</li>
+                        <li><strong>Superior SQL:</strong> Relationship-aware, optimized queries</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Legend -->
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color orchestrator"></div>
+                <span>Orchestrator Agent</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color schema"></div>
+                <span>Schema Agent (Graph Traversal)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color ambiguity"></div>
+                <span>Ambiguity Resolver</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color decomposer"></div>
+                <span>Query Decomposer</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color generator"></div>
+                <span>SQL Generator</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color validator"></div>
+                <span>Validator Agent</span>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Interactive agent highlighting
+        document.querySelectorAll('[data-agent]').forEach(element => {
+            element.addEventListener('mouseenter', function() {
+                const agentType = this.getAttribute('data-agent');
+                
+                // Highlight all elements of the same agent type
+                document.querySelectorAll(`[data-agent="${agentType}"]`).forEach(el => {
+                    el.classList.add('highlighted');
+                });
+            });
+            
+            element.addEventListener('mouseleave', function() {
+                // Remove all highlights
+                document.querySelectorAll('.highlighted').forEach(el => {
+                    el.classList.remove('highlighted');
+                });
+            });
+        });
+        
+        // Agent overview click functionality
+        document.querySelectorAll('.agent-overview').forEach(element => {
+            element.addEventListener('click', function() {
+                const agentType = this.getAttribute('data-agent');
+                
+                // Remove previous highlights
+                document.querySelectorAll('.highlighted').forEach(el => {
+                    el.classList.remove('highlighted');
+                });
+                
+                // Highlight related elements
+                document.querySelectorAll(`[data-agent="${agentType}"]`).forEach(el => {
+                    el.classList.add('highlighted');
+                });
+                
+                // Auto-remove highlight after 3 seconds
+                setTimeout(() => {
+                    document.querySelectorAll('.highlighted').forEach(el => {
+                        el.classList.remove('highlighted');
+                    });
+                }, 3000);
+            });
+        });
+        
+        // Smooth scrolling for better UX
+        document.querySelectorAll('.phase, .agent-detail').forEach(element => {
+            element.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.02)';
+            });
+            
+            element.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+        
+        // Code snippet highlighting
+        document.querySelectorAll('.io-content').forEach(element => {
+            element.addEventListener('click', function() {
+                this.style.background = '#fff3cd';
+                this.style.color = '#856404';
+                
+                setTimeout(() => {
+                    this.style.background = 'white';
+                    this.style.color = '#495057';
+                }, 1500);
+            });
+        });
+        
+        // Method highlighting
+        document.querySelectorAll('.method').forEach(element => {
+            element.addEventListener('click', function() {
+                this.style.borderColor = '#007bff';
+                this.style.borderWidth = '2px';
+                this.style.background = '#e3f2fd';
+                
+                setTimeout(() => {
+                    this.style.borderColor = '#dee2e6';
+                    this.style.borderWidth = '1px';
+                    this.style.background = '#f8f9fa';
+                }, 2000);
+            });
+        });
+        
+        // Sample data expandable functionality
+        document.querySelectorAll('.sample-content').forEach(element => {
+            element.addEventListener('click', function() {
+                if (this.style.maxHeight === 'none') {
+                    this.style.maxHeight = '100px';
+                    this.style.overflow = 'hidden';
+                } else {
+                    this.style.maxHeight = 'none';
+                    this.style.overflow = 'visible';
+                }
+            });
+        });
+        
+        // Add workflow progress tracking
+        let currentStep = 0;
+        const phases = document.querySelectorAll('.phase');
+        
+        function highlightCurrentStep() {
+            phases.forEach((phase, index) => {
+                if (index === currentStep) {
+                    phase.classList.add('highlighted');
+                } else {
+                    phase.classList.remove('highlighted');
+                }
+            });
+        }
+        
+        
+        
+        // Add keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowDown' && currentStep < phases.length - 1) {
+                currentStep++;
+                highlightCurrentStep();
+                phases[currentStep].scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else if (e.key === 'ArrowUp' && currentStep > 0) {
+                currentStep--;
+                highlightCurrentStep();
+                phases[currentStep].scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        });
+        
+        // Add scroll-based step highlighting
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.scrollY + window.innerHeight / 2;
+            
+            phases.forEach((phase, index) => {
+                const phaseTop = phase.offsetTop;
+                const phaseBottom = phaseTop + phase.offsetHeight;
+                
+                if (scrollPosition >= phaseTop && scrollPosition <= phaseBottom) {
+                    if (currentStep !== index) {
+                        currentStep = index;
+                        // Optional: auto-highlight on scroll
+                        // highlightCurrentStep();
+                    }
+                }
+            });
+        });
+        
+        // Add tooltips for technical terms
+        const tooltips = {
+            'graph traversal': 'A method of exploring database schema relationships using graph algorithms',
+            'semantic similarity': 'Measuring meaning similarity using vector embeddings',
+            'cosine similarity': 'Mathematical measure of similarity between two vectors',
+            'multi-hop reasoning': 'Following relationships across multiple connected entities',
+            'attention mechanism': 'AI technique for focusing on relevant information',
+            'embedding': 'Vector representation of text for semantic analysis'
+        };
+        
+        // Create tooltip functionality
+        Object.keys(tooltips).forEach(term => {
+            const regex = new RegExp(`\\b${term}\\b`, 'gi');
+            document.body.innerHTML = document.body.innerHTML.replace(regex, 
+                `<span class="tooltip-term" data-tooltip="${tooltips[term]}">${term}</span>`);
+        });
+        
+        // Style tooltips
+        const style = document.createElement('style');
+        style.textContent = `
+            .tooltip-term {
+                border-bottom: 1px dotted #007bff;
+                cursor: help;
+                position: relative;
+            }
+            
+            .tooltip-term:hover::after {
+                content: attr(data-tooltip);
+                position: absolute;
+                bottom: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+                background: #333;
+                color: white;
+                padding: 8px 12px;
+                border-radius: 4px;
+                font-size: 12px;
+                white-space: nowrap;
+                z-index: 1000;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            }
+            
+            .tooltip-term:hover::before {
+                content: '';
+                position: absolute;
+                bottom: 94%;
+                left: 50%;
+                transform: translateX(-50%);
+                border: 5px solid transparent;
+                border-top-color: #333;
+                z-index: 1000;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
