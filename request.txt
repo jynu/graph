@@ -1,0 +1,34 @@
+{
+  "data": {
+    "trainingdata": [
+      {
+        "tableId": "45",
+        "schemaName": "GFOLYNSD_STANDARDIZATION",
+        "tableName": "OM_TRADE_FACT_ALL",
+        "tableDescription": "This table Contains Trades dataset ...",
+        "tableSpecificRules": "XYZ",
+        "updatedBy": "PM73231",
+        "version": "1",
+        "tableAlias": ["Citi traded transactions"],
+        "columns": [
+          {
+            "tableColumnId": "23",
+            "columnName": "send_confirmation_flag",
+            "columnDescription": "Send Confirmation Flag ...",
+            "columnAlias": ["Flag to denote if the customer is to receive a confirm or not."],
+            "rejectReason": null,
+            "actual_col_type": "char(1)",
+            "mapped_col_type": "string",
+            "distinct_count": 2,
+            "provide_distinct": "YES",
+            "distinct_value_map": {
+              "Y": "The trade confirmation ... was sent ...",
+              "N": "The trade confirmation ... was not sent ..."
+            },
+            "enum": null
+          }
+        ]
+      }
+    ]
+  }
+}
